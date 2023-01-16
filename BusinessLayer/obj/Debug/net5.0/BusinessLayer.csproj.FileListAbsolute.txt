@@ -1,0 +1,17 @@
+D:\c#\Blog-Project\BusinessLayer\bin\Debug\net5.0\BusinessLayer.deps.json
+D:\c#\Blog-Project\BusinessLayer\bin\Debug\net5.0\BusinessLayer.dll
+D:\c#\Blog-Project\BusinessLayer\bin\Debug\net5.0\BusinessLayer.pdb
+D:\c#\Blog-Project\BusinessLayer\obj\Debug\net5.0\BusinessLayer.csproj.AssemblyReference.cache
+D:\c#\Blog-Project\BusinessLayer\obj\Debug\net5.0\BusinessLayer.GeneratedMSBuildEditorConfig.editorconfig
+D:\c#\Blog-Project\BusinessLayer\obj\Debug\net5.0\BusinessLayer.AssemblyInfoInputs.cache
+D:\c#\Blog-Project\BusinessLayer\obj\Debug\net5.0\BusinessLayer.AssemblyInfo.cs
+D:\c#\Blog-Project\BusinessLayer\obj\Debug\net5.0\BusinessLayer.csproj.CoreCompileInputs.cache
+D:\c#\Blog-Project\BusinessLayer\obj\Debug\net5.0\BusinessLayer.dll
+D:\c#\Blog-Project\BusinessLayer\obj\Debug\net5.0\refint\BusinessLayer.dll
+D:\c#\Blog-Project\BusinessLayer\obj\Debug\net5.0\BusinessLayer.pdb
+D:\c#\Blog-Project\BusinessLayer\obj\Debug\net5.0\ref\BusinessLayer.dll
+D:\c#\Blog-Project\BusinessLayer\bin\Debug\net5.0\DataAccessLayer.dll
+D:\c#\Blog-Project\BusinessLayer\bin\Debug\net5.0\EntityLayer.dll
+D:\c#\Blog-Project\BusinessLayer\bin\Debug\net5.0\DataAccessLayer.pdb
+D:\c#\Blog-Project\BusinessLayer\bin\Debug\net5.0\EntityLayer.pdb
+D:\c#\Blog-Project\BusinessLayer\obj\Debug\net5.0\BusinessLayer.csproj.CopyComplete
