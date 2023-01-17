@@ -1768,6 +1768,7 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v5.0",
         "dependencies": {
+          "CoreLayer": "1.0.0",
           "DataAccessLayer": "1.0.0",
           "EntityLayer": "1.0.0"
         },
@@ -1778,10 +1779,24 @@
           "bin/placeholder/BusinessLayer.dll": {}
         }
       },
+      "CoreLayer/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v5.0",
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore": "5.0.17"
+        },
+        "compile": {
+          "bin/placeholder/CoreLayer.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/CoreLayer.dll": {}
+        }
+      },
       "DataAccessLayer/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v5.0",
         "dependencies": {
+          "CoreLayer": "1.0.0",
           "EntityLayer": "1.0.0",
           "Microsoft.EntityFrameworkCore": "5.0.17",
           "Microsoft.EntityFrameworkCore.SqlServer": "5.0.17"
@@ -1796,6 +1811,9 @@
       "EntityLayer/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v5.0",
+        "dependencies": {
+          "CoreLayer": "1.0.0"
+        },
         "compile": {
           "bin/placeholder/EntityLayer.dll": {}
         },
@@ -6075,6 +6093,11 @@
       "type": "project",
       "path": "../BusinessLayer/BusinessLayer.csproj",
       "msbuildProject": "../BusinessLayer/BusinessLayer.csproj"
+    },
+    "CoreLayer/1.0.0": {
+      "type": "project",
+      "path": "../CoreLayer/CoreLayer.csproj",
+      "msbuildProject": "../CoreLayer/CoreLayer.csproj"
     },
     "DataAccessLayer/1.0.0": {
       "type": "project",

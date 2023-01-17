@@ -1718,10 +1718,24 @@
           "lib/netstandard1.3/System.Xml.XmlSerializer.dll": {}
         }
       },
+      "CoreLayer/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v5.0",
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore": "5.0.17"
+        },
+        "compile": {
+          "bin/placeholder/CoreLayer.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/CoreLayer.dll": {}
+        }
+      },
       "DataAccessLayer/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v5.0",
         "dependencies": {
+          "CoreLayer": "1.0.0",
           "EntityLayer": "1.0.0",
           "Microsoft.EntityFrameworkCore": "5.0.17",
           "Microsoft.EntityFrameworkCore.SqlServer": "5.0.17"
@@ -1736,6 +1750,9 @@
       "EntityLayer/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v5.0",
+        "dependencies": {
+          "CoreLayer": "1.0.0"
+        },
         "compile": {
           "bin/placeholder/EntityLayer.dll": {}
         },
@@ -5955,6 +5972,11 @@
         "system.xml.xmlserializer.nuspec"
       ]
     },
+    "CoreLayer/1.0.0": {
+      "type": "project",
+      "path": "../CoreLayer/CoreLayer.csproj",
+      "msbuildProject": "../CoreLayer/CoreLayer.csproj"
+    },
     "DataAccessLayer/1.0.0": {
       "type": "project",
       "path": "../DataAccessLayer/DataAccessLayer.csproj",
@@ -5968,6 +5990,7 @@
   },
   "projectFileDependencyGroups": {
     "net5.0": [
+      "CoreLayer >= 1.0.0",
       "DataAccessLayer >= 1.0.0",
       "EntityLayer >= 1.0.0"
     ]
@@ -5999,6 +6022,9 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "projectReferences": {
+            "D:\\c#\\Blog-Project\\CoreLayer\\CoreLayer.csproj": {
+              "projectPath": "D:\\c#\\Blog-Project\\CoreLayer\\CoreLayer.csproj"
+            },
             "D:\\c#\\Blog-Project\\DataAccessLayer\\DataAccessLayer.csproj": {
               "projectPath": "D:\\c#\\Blog-Project\\DataAccessLayer\\DataAccessLayer.csproj"
             },
