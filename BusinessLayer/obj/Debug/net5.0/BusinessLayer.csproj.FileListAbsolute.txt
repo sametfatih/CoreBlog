@@ -15,3 +15,5 @@ D:\c#\Blog-Project\BusinessLayer\bin\Debug\net5.0\EntityLayer.dll
 D:\c#\Blog-Project\BusinessLayer\bin\Debug\net5.0\DataAccessLayer.pdb
 D:\c#\Blog-Project\BusinessLayer\bin\Debug\net5.0\EntityLayer.pdb
 D:\c#\Blog-Project\BusinessLayer\obj\Debug\net5.0\BusinessLayer.csproj.CopyComplete
+D:\c#\Blog-Project\BusinessLayer\bin\Debug\net5.0\CoreLayer.dll
+D:\c#\Blog-Project\BusinessLayer\bin\Debug\net5.0\CoreLayer.pdb

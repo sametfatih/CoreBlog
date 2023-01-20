@@ -12,11 +12,11 @@ namespace BusinessLayer.Concrete
 {
     public class CommentManager : ICommentService
     {
-        EfCommentDal _commentDal;
+        ICommentDal _commentDal;
 
         public CommentManager(EfCommentDal commentDal)
         {
-            _commentDal = new EfCommentDal();
+            _commentDal = commentDal;
         }
 
         public void Add(Comment entity)
@@ -31,10 +31,15 @@ namespace BusinessLayer.Concrete
 
         public List<Comment> GetAll()
         {
-            throw new NotImplementedException();
+            return _commentDal.GetAll();
         }
 
-        public Comment GetByID(int id)
+		public List<Comment> GetAllByBlogId(int id)
+		{
+			return _commentDal.GetAll(c=>c.BlogId==id);
+		}
+
+		public Comment GetByID(int id)
         {
             throw new NotImplementedException();
         }

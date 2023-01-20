@@ -1,0 +1,76 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/UserLayout.cshtml";
+}
+
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script src="~/lib/jquery/dist/jquery.js"></script>
+	
+	<section class="main-content-w3layouts-agileits">
+		<div class="container">
+			<h3 class="tittle">Yazar Kayıt Formu</h3>
+				<div class="inner-sec">
+					<div class="login p-5 bg-light mx-auto mw-120">
+						<form method="post">
+								<div class="form-row">
+										<div class="col-md-6 mb-3">
+											<label for="validationCustom01">Ad Soyad*</label>
+											<input type="text" class="form-control" name="AuthorName" placeholder="" required="">
+										</div>
+										<div class="col-md-6 mb-3">
+											<label for="validationCustom02">Email*</label>
+											<input type="email" class="form-control" name="AuthorMail" placeholder="" required="">
+										</div>
+								</div>
+								<div class="form-row">
+									<div class="form-group col-md-6">
+										<label for="exampleInputPassword1 mb-2">Şifre*</label>
+										<input type="password" class="form-control" name="AuthorPassword" id="password1" placeholder="" required="">
+									</div>
+									<div class="form-group col-md-6">
+										<label for="exampleInputPassword2 mb-2">Şifre Tekrar*</label>
+										<input type="password" class="form-control" id="password2" placeholder="" required="">
+									</div>
+								</div>
+								<div class="form-group">
+									<label for="exampleInput mb-2">Görsel Yolu</label>
+									<input type="text" class="form-control" name="AuthorImagePath" placeholder="" required="">
+								</div>
+								<button type="submit" class="btn btn-primary theme-btn" >Kayıt Ol</button>
+								<div class="form-check mt-3">
+								  <input class="form-check-input" type="checkbox" value="" required="">
+								  <label class="form-check-label" for="flexCheckDefault">
+										*Kayıt Ol'a tıklayarak, <a href="#" id="terms" style="color:#01cd74;">Kullanıcı Sözleşmesi</a>'ni kabul ediyorum.
+								  </label>
+								</div>
+						</form>
+					</div>
+				</div>
+		</div>
+	</section>
+
+	<script>
+		window.onload = function () {
+			document.getElementById("password1").onchange = validatePassword;
+			document.getElementById("password2").onchange = validatePassword;
+		}
+
+		function validatePassword() {
+			var pass2 = document.getElementById("password2").value;
+			var pass1 = document.getElementById("password1").value;
+			if (pass1 != pass2)
+				document.getElementById("password2").setCustomValidity("Şifreler eşleşmiyor!.");
+			else
+				document.getElementById("password2").setCustomValidity('');
+			//empty string means no validation error
+		}
+	</script>
+
+	<script>
+		$('#terms').click(function(){
+			swal("Şartlar burada olacak.", {
+  buttons: [""],
+});
+		});
+	</script>

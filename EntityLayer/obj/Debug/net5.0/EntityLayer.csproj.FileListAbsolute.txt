@@ -10,3 +10,6 @@ D:\c#\Blog-Project\EntityLayer\obj\Debug\net5.0\EntityLayer.dll
 D:\c#\Blog-Project\EntityLayer\obj\Debug\net5.0\refint\EntityLayer.dll
 D:\c#\Blog-Project\EntityLayer\obj\Debug\net5.0\EntityLayer.pdb
 D:\c#\Blog-Project\EntityLayer\obj\Debug\net5.0\ref\EntityLayer.dll
+D:\c#\Blog-Project\EntityLayer\bin\Debug\net5.0\CoreLayer.dll
+D:\c#\Blog-Project\EntityLayer\bin\Debug\net5.0\CoreLayer.pdb
+D:\c#\Blog-Project\EntityLayer\obj\Debug\net5.0\EntityLayer.csproj.CopyComplete

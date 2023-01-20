@@ -1,5 +1,6 @@
 ﻿using BusinessLayer.Abstract;
 using CoreLayer.Business.Abstract;
+using DataAccessLayer.Abstract;
 using DataAccessLayer.Concrete.EntityFramework;
 using EntityLayer.Concrete;
 using System;
@@ -12,11 +13,11 @@ namespace BusinessLayer.Concrete
 {
     public class AboutManager : IAboutService
     {
-        EfAboutDal _aboutDal;
+        IAboutDal _aboutDal;
 
         public AboutManager(EfAboutDal aboutDal)
         {
-            _aboutDal = new EfAboutDal();
+            _aboutDal = aboutDal;
         }
 
         public void Add(About entity)

@@ -1,4 +1,5 @@
 ﻿using BusinessLayer.Abstract;
+using DataAccessLayer.Abstract;
 using DataAccessLayer.Concrete.EntityFramework;
 using EntityLayer.Concrete;
 using System;
@@ -11,11 +12,11 @@ namespace BusinessLayer.Concrete
 {
     public class ContactManager : IContactService
     {
-        EfContactDal _contactDal;
+        IContactDal _contactDal;
 
         public ContactManager(EfContactDal contactDal)
         {
-            _contactDal = new EfContactDal();
+            _contactDal = contactDal;
         }
 
         public void Add(Contact entity)

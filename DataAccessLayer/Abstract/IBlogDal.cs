@@ -10,5 +10,6 @@ namespace DataAccessLayer.Abstract
 {
     public interface IBlogDal:IRepository<Blog>
     {
+        List<Blog> GetAllWithCategory();
     }
 }

@@ -1,4 +1,5 @@
 ﻿using BusinessLayer.Abstract;
+using DataAccessLayer.Abstract;
 using DataAccessLayer.Concrete.EntityFramework;
 using EntityLayer.Concrete;
 using System;
@@ -11,16 +12,16 @@ namespace BusinessLayer.Concrete
 {
     public class AuthorManager : IAuthorService
     {
-        EfAuthorDal _authorDal;
+        IAuthorDal _authorDal;
 
         public AuthorManager(EfAuthorDal authorDal)
         {
-            _authorDal = new EfAuthorDal();
+            _authorDal = authorDal;
         }
 
         public void Add(Author entity)
         {
-            throw new NotImplementedException();
+            _authorDal.Add(entity);
         }
         
         public void Delete(int id)

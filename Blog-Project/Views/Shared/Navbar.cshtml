@@ -1,0 +1,43 @@
+﻿@{
+	string c1 = ViewData["CurrentPage"] == "Home" ? "active" : "";
+	string c2 = ViewData["CurrentPage"] == "BlogList" ? "active" : ""; ;
+	string c3 = ViewData["CurrentPage"] == "About" ? "active" : ""; ;
+	string c4 = ViewData["CurrentPage"] == "Contact" ? "active" : ""; ;
+
+}
+
+<div class="header_top" id="home">
+				<nav class="navbar navbar-expand-lg navbar-light bg-light">
+					<button class="navbar-toggler navbar-toggler-right mx-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+						aria-expanded="false" aria-label="Toggle navigation">
+						<span class="navbar-toggler-icon"></span>
+				   </button>
+
+
+					<div class="collapse navbar-collapse" id="navbarSupportedContent">
+						<ul class="navbar-nav mr-auto">
+							<li class="nav-item @c1">
+								<a class="nav-link" href="/Blog">Anasayfa
+									<span class="sr-only">(current)</span>
+								</a>
+							</li>
+							<li class="nav-item @c2">
+								<a class="nav-link" href="/Blog/BlogList">Bloglar</a>
+							</li>
+							<li class="nav-item @c3">
+								<a class="nav-link" href="/Blog/About">Hakkımızda</a>
+							</li>
+							<li class="nav-item @c4">
+								<a class="nav-link" href="/Blog/Contact">İletişim</a>
+							</li>
+
+						</ul>
+							<form action="#" method="post" class="form-inline my-2 my-lg-0 header-search">
+								<input class="form-control mr-sm-2" type="search" placeholder="Buradan Arayın.." name="Search" required="">
+								<button class="btn btn1 my-2 my-sm-0" type="submit"><i class="fas fa-search"></i></button>
+							</form>
+
+					</div>
+				</nav>
+
+			</div>

@@ -10,5 +10,6 @@ namespace BusinessLayer.Abstract
 {
     public interface IBlogService:IService<Blog>
     {
+        List<Blog> GetAllWithCategory();
     }
 }

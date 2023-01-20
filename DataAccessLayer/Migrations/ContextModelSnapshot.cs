@@ -159,9 +159,6 @@ namespace DataAccessLayer.Migrations
                     b.Property<bool>("CommentStatus")
                         .HasColumnType("bit");
 
-                    b.Property<string>("CommentTitle")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("CommentUserName")
                         .HasColumnType("nvarchar(max)");
 
