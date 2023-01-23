@@ -26,8 +26,15 @@ using Blog_Project.Models;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 3 "D:\c#\Blog-Project\Blog-Project\Views\_ViewImports.cshtml"
+using EntityLayer.Concrete;
+
+#line default
+#line hidden
+#nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"0b9dae5d38d6981e60dee2a637599a3f1e73a3b3", @"/Views/Shared/Footer.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"92d1889c23e2b0358c71cc1508b4cd5fcadbbc27", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"8c8e0b416c3cc64e3f27590a32b512a6a4bf172f", @"/Views/_ViewImports.cshtml")]
     #nullable restore
     public class Views_Shared_Footer : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<dynamic>
     #nullable disable
@@ -85,7 +92,7 @@ using Blog_Project.Models;
 							<div class=""col-md-5 blog-grid-left"">
 								<a href=""single.html"">
 									");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "0b9dae5d38d6981e60dee2a637599a3f1e73a3b36797", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "0b9dae5d38d6981e60dee2a637599a3f1e73a3b36964", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -119,7 +126,7 @@ using Blog_Project.Models;
 							<div class=""col-md-5 blog-grid-left"">
 								<a href=""single.html"">
 									");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "0b9dae5d38d6981e60dee2a637599a3f1e73a3b38488", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "0b9dae5d38d6981e60dee2a637599a3f1e73a3b38655", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -153,7 +160,7 @@ using Blog_Project.Models;
 							<div class=""col-md-5 blog-grid-left"">
 								<a href=""single.html"">
 									");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "0b9dae5d38d6981e60dee2a637599a3f1e73a3b310179", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "0b9dae5d38d6981e60dee2a637599a3f1e73a3b310346", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -191,7 +198,7 @@ using Blog_Project.Models;
 					<div class=""subscribe-main text-left"">
 							<div class=""subscribe-form"">
 									");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "0b9dae5d38d6981e60dee2a637599a3f1e73a3b312000", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "0b9dae5d38d6981e60dee2a637599a3f1e73a3b312167", async() => {
                 WriteLiteral("\r\n\t\t\t\t\t\t\t\t\t\t<input class=\"form-control\" type=\"email\" placeholder=\"Email adresinizi giriniz...\"");
                 BeginWriteAttribute("required", " required=\"", 2555, "\"", 2566, 0);
                 EndWriteAttribute();

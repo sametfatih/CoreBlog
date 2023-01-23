@@ -1,0 +1,84 @@
+﻿
+<div class="comment-top">
+	<h4>Bir Yorum Yapın</h4>
+	<div class="comment-bottom">
+		<form id="commentForm" method="post">
+			<input class="form-control" type="text" id="commentName" name="CommentUserName" placeholder="Ad Soyad" required="">
+			<input class="form-control" type="email" id="commentEmail" name="CommentUserMail" placeholder="Email" required="">
+			<input class="form-control" type="hidden" name="BlogId" value="@ViewBag.blogId" required="">
+			<input class="form-control" type="hidden" name="CommentDate" value="@DateTime.Now.ToShortDateString()" required="">
+			<textarea class="form-control" id="commentText" name="CommentContent" placeholder="Mesaj..." required=""></textarea>
+			<button type="button" id="submitComment" class="btn btn-primary submit">Yorum Yap</button>
+			<span class="result small ml-3" id="result_comment" style="display:inline-block;"></span>
+
+		</form>
+	</div>
+</div>
+
+<script>
+	$(document).ready(function(){
+		$('#submitComment').click(function(){
+
+			var commentEmail = $('#commentEmail').val();
+
+			function IsEmail(email) {
+			  var regex = /^(([^<>()[\]\.,;:\s@@\"]+(\.[^<>()[\]\.,;:\s@@\"]+)*)|(\".+\"))@@(([^<>()[\]\.,;:\s@@\"]+\.)+[^<>()[\]\.,;:\s@@\"]{2,})$/;
+			  if(!regex.test(email)) {
+				return false;
+			  }else{
+				return true;
+			  }
+			}
+
+			if(
+				$('#commentEmail').val()!="" &&
+				$('#commentText').val()!="" &&
+				$('#commentName').val()!=""
+			){
+				if(IsEmail(commentEmail)==false){
+					 $('#result_comment').css('color','red');
+					 $('#result_comment').text('*Email adresi geçerli değil.');
+					 $('#result_comment').fadeIn();
+
+					setTimeout(function () {
+						 $('#result_comment').text('');
+					}, 2000);
+
+					 return false;
+				}else{
+					var commentData=$('#commentForm').serialize();
+
+					$.ajax({
+						url:"/Comment/AddComment",
+						type:"POST",
+						dataType:"json",
+						data:commentData,
+						success:function(data){
+							 $('#result_comment').css('color','green');
+							 $('#result_comment').text(data.message);
+							 $('#result_comment').fadeIn();
+							 
+							 $('#commentEmail').val('');
+							 $('#commentText').val('');
+							 $('#commentName').val('');
+
+							 setTimeout(function () {
+									 $('#result_comment').text('');
+							 }, 5000);
+						}
+					});
+				}
+			}else{
+				$('#result_comment').css('color','red');
+				$('#result_comment').text('*Yukarıdaki alanlar boş bırakılamaz.');
+				$('#result_comment').fadeIn();
+
+					setTimeout(function () {
+						 $('#result_comment').text('');
+					}, 2000);
+			}
+
+		});
+	});
+
+</script>

@@ -2,6 +2,8 @@
 using EntityLayer.Concrete;
 using BusinessLayer.Concrete;
 using DataAccessLayer.Concrete.EntityFramework;
+using BusinessLayer.ValidationRules;
+using FluentValidation.Results;
 
 namespace Blog_Project.Controllers
 {
@@ -17,9 +19,23 @@ namespace Blog_Project.Controllers
 		[HttpPost]
 		public IActionResult Index(Author author)
 		{
-            author.AuthorStatus = true;
-            _authorManager.Add(author);
-			return RedirectToAction("Index","Blog");
+            AuthorValidator authorValidator = new AuthorValidator();
+            ValidationResult results= authorValidator.Validate(author);   
+
+            if(results.IsValid) {
+				
+				_authorManager.Add(author);
+				return RedirectToAction("Index", "Blog");
+
+            }
+            else
+            {
+                foreach (var item in results.Errors)
+                {
+                    ModelState.AddModelError(item.PropertyName, item.ErrorMessage);
+                }
+            }
+            return View();
 		}
 	}
 }

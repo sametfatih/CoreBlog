@@ -11,5 +11,7 @@ namespace BusinessLayer.Abstract
     public interface IBlogService:IService<Blog>
     {
         List<Blog> GetAllWithCategory();
+        IEnumerable<Blog> GetBlogsForAuthorId(int id);
+        IEnumerable<Blog> GetNewBlogs();
     }
 }

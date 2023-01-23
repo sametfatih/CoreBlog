@@ -26,8 +26,15 @@ using Blog_Project.Models;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 3 "D:\c#\Blog-Project\Blog-Project\Views\_ViewImports.cshtml"
+using EntityLayer.Concrete;
+
+#line default
+#line hidden
+#nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"9420f06ba423c59d271d24bbebe9866a8dc0fa0d", @"/Views/Blog/BannerSlider.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"92d1889c23e2b0358c71cc1508b4cd5fcadbbc27", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"8c8e0b416c3cc64e3f27590a32b512a6a4bf172f", @"/Views/_ViewImports.cshtml")]
     #nullable restore
     public class Views_Blog_BannerSlider : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<dynamic>
     #nullable disable

@@ -755,9 +755,9 @@ ul.blog-icons i {
     border: 2px solid #eceff1;
     -webkit-appearance: none;
     letter-spacing: 1px;
-    margin: 1em 0;
+    /*margin: 1em 0;*/
 }
-.tech-btm input[type="submit"] {
+.tech-btm input[type="button"] {
     background: #01cd74;
     padding: .7em 1em;
     color: #fff;
@@ -770,7 +770,7 @@ ul.blog-icons i {
 	cursor: pointer;
 	text-transform:uppercase;
 }
-.tech-btm input[type="submit"]:hover {
+.tech-btm input[type="button"]:hover {
 	background: #05b166;
 }
 .widget_social li {

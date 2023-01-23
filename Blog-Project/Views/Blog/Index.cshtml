@@ -1,4 +1,5 @@
-﻿
+﻿@using EntityLayer.Concrete
+
 @{
     ViewData["Title"] = "Index";
     ViewData["CurrentPage"] = "Home";
@@ -116,17 +117,9 @@
 				<!--right-->
 				<aside class="col-lg-4 agileits-w3ls-right-blog-con text-right">
 					<div class="right-blog-info text-left">
-						<div class="tech-btm">
-							<img src="~/images/blogs/b1.jpg" class="img-fluid" alt="">
-						</div>
-						<div class="tech-btm">
-							<h4>Haber bültenimize kayıt olun</h4>
-							<form action="#" method="post">
-								<input type="email" placeholder="Email adresinizi giriniz..." required="">
-								<input type="submit" value="Kayıt Ol">
-							</form>
+						
+						@await Html.PartialAsync("~/Views/Subscriber/SubscribeMail.cshtml")
 
-						</div>
 						<div class="tech-btm widget_social">
 							<h4>Takipte Kalın</h4>
 							<ul>

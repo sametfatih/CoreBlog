@@ -39,12 +39,22 @@ namespace BusinessLayer.Concrete
 			return _blogDal.GetAllWithCategory();
 		}
 
-		public Blog GetByID(int id)
+        public IEnumerable<Blog> GetBlogsForAuthorId(int id)
+        {
+            return _blogDal.GetAll(b=>b.AuthorId== id).Take(6);
+        }
+
+        public Blog GetByID(int id)
 		{
 			return _blogDal.Get(b => b.BlogId == id);
 		}
 
-		public void Update(Blog entity)
+        public IEnumerable<Blog> GetNewBlogs()
+        {
+            return _blogDal.GetAll().OrderByDescending(b=>b.BlogCreateDate).Take(3);
+        }
+
+        public void Update(Blog entity)
 		{
 			throw new NotImplementedException();
 		}

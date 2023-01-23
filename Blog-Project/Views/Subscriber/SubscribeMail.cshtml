@@ -1,0 +1,66 @@
+﻿
+<div class="tech-btm">
+	<h4>Bültenimize abone olun</h4>
+    <form id="subscribeForm" novalidate>
+		<input type="email" placeholder="Email adresinizi giriniz..." id="subscribeEmail" required name="SubscriberMail">
+        <span class="result small" id="result_subscribe" style="color:red;display:inline-block;"></span>
+        <input type="button" id="subscribe" value="Abone Ol">
+	</form>
+</div>
+
+<script>  
+    $(document).ready(function () {  
+        
+        $("#subscribe").click(function (e) {  
+            //Serialize the form datas.  
+            
+            var subscribeEmail = $('#subscribeEmail').val();
+
+            function IsEmail(email) {
+              var regex = /^(([^<>()[\]\.,;:\s@@\"]+(\.[^<>()[\]\.,;:\s@@\"]+)*)|(\".+\"))@@(([^<>()[\]\.,;:\s@@\"]+\.)+[^<>()[\]\.,;:\s@@\"]{2,})$/;
+              if(!regex.test(email)) {
+                return false;
+              }else{
+                return true;
+              }
+            }
+        
+            if(IsEmail(subscribeEmail)==false){
+                 $('#result_subscribe').css('color','red')
+                 $('#result_subscribe').text('*Email adresi geçerli değil.');
+                 $('#result_subscribe').fadeIn();
+
+                setTimeout(function () {
+                     $('#result_subscribe').text('');
+
+                }, 2000);
+                        
+                 return false;
+            }
+            else{
+
+                var valdata = $("#subscribeForm").serialize();
+
+                $.ajax({  
+
+                    url: "/Subscriber/SubscribeMail",  
+                    type: "POST", 
+                    dataType: 'json',
+                    contentType: 'application/x-www-form-urlencoded; charset=UTF-8',  
+                    data: valdata,
+                    success:function(data) {
+
+                        $('#result_subscribe').css('color','green')
+                        $('#result_subscribe').text(data.message);
+                        $('#result_subscribe').fadeIn();
+                        $('#subscribeEmail').val('');
+
+                        setTimeout(function() {
+                          $('#result_subscribe').text('');
+                        }, 3000);
+                     }
+                });  
+            }    
+        });  
+    });  
+</script>  

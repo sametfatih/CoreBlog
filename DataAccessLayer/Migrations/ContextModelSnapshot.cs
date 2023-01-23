@@ -159,6 +159,9 @@ namespace DataAccessLayer.Migrations
                     b.Property<bool>("CommentStatus")
                         .HasColumnType("bit");
 
+                    b.Property<string>("CommentUserMail")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("CommentUserName")
                         .HasColumnType("nvarchar(max)");
 
@@ -197,6 +200,24 @@ namespace DataAccessLayer.Migrations
                     b.HasKey("ContactId");
 
                     b.ToTable("Contacts");
+                });
+
+            modelBuilder.Entity("EntityLayer.Concrete.Subscriber", b =>
+                {
+                    b.Property<int>("SubscriberId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("SubscriberMail")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("SubscriberStatus")
+                        .HasColumnType("bit");
+
+                    b.HasKey("SubscriberId");
+
+                    b.ToTable("Subscribers");
                 });
 
             modelBuilder.Entity("EntityLayer.Concrete.Blog", b =>

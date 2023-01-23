@@ -26,8 +26,15 @@ using Blog_Project.Models;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 3 "D:\c#\Blog-Project\Blog-Project\Views\_ViewImports.cshtml"
+using EntityLayer.Concrete;
+
+#line default
+#line hidden
+#nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"b814014cb82e555257cb0d5d7795d6fbc6152dce", @"/Views/Shared/Navbar.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"92d1889c23e2b0358c71cc1508b4cd5fcadbbc27", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"8c8e0b416c3cc64e3f27590a32b512a6a4bf172f", @"/Views/_ViewImports.cshtml")]
     #nullable restore
     public class Views_Shared_Navbar : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<dynamic>
     #nullable disable
@@ -128,7 +135,7 @@ WriteAttributeValue(" ", 1220, c4, 1221, 3, false);
 #nullable disable
             EndWriteAttribute();
             WriteLiteral(">\r\n\t\t\t\t\t\t\t\t<a class=\"nav-link\" href=\"/Blog/Contact\">İletişim</a>\r\n\t\t\t\t\t\t\t</li>\r\n\r\n\t\t\t\t\t\t</ul>\r\n\t\t\t\t\t\t\t");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "b814014cb82e555257cb0d5d7795d6fbc6152dce7403", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "b814014cb82e555257cb0d5d7795d6fbc6152dce7570", async() => {
                 WriteLiteral("\r\n\t\t\t\t\t\t\t\t<input class=\"form-control mr-sm-2\" type=\"search\" placeholder=\"Buradan Arayın..\" name=\"Search\"");
                 BeginWriteAttribute("required", " required=\"", 1509, "\"", 1520, 0);
                 EndWriteAttribute();

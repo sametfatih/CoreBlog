@@ -23,7 +23,7 @@
 						@foreach(var blog in Model){
 							<div class="col-lg-4 card my-lg-4 my-md-1 my-0">
 								<a href="/Blog/BlogDetails/@blog.BlogId">
-								<img src="../web/images/7.jpg" class="card-img-top img-fluid" alt="">
+									<img src="@blog.BlogImagePath" class="card-img-top img-fluid" style="height:190px;width:330px;" alt="">
 							</a>
 							<div class="card-body">
 								<ul class="blog-icons my-4">
