@@ -1,0 +1,170 @@
+﻿
+@model ContactUs
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/UserLayout.cshtml";
+}
+
+<link href="css/contact.css" rel='stylesheet' type='text/css' />
+
+	<div class="banner-inner"></div>
+	<section class="main-content-w3layouts-agileits">
+
+		<h3 class="tittle">Bize Ulaşın</h3>
+		<p class="sub text-center">Fikirleriniz bizim için önemlidir</p>
+		<div class="contact-map inner-sec">
+
+			<div style="width: 100%"><iframe width="100%" height="600" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=en&amp;q=ankara%20yenimahalle%20%C3%B6zevler+(Test)&amp;t=&amp;z=15&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"><a href="https://www.maps.ie/distance-area-calculator.html">measure distance on map</a></iframe></div>
+
+		</div>
+		<div class="ad-inf-sec bg-light">
+			<div class="container">
+				<div class="address row">
+
+					<div class="col-lg-4 address-grid">
+						<div class="row address-info">
+							<div class="col-md-4 address-left text-center">
+								<i class="far fa-map"></i>
+							</div>
+							<div class="col-md-8 address-right text-left">
+								<h6>Adres</h6>
+								<p>@Model.ContactUsAdress</p>
+							</div>
+						</div>
+
+					</div>
+					<div class="col-lg-4 address-grid">
+						<div class="row address-info">
+							<div class="col-md-4 address-left text-center">
+								<i class="far fa-envelope"></i>
+							</div>
+							<div class="col-md-8 address-right text-left">
+								<h6>Email</h6>
+								<p>
+									<a href="mailto:example@email.com">@Model.ContactUsMail</a>
+								</p>
+							</div>
+
+						</div>
+					</div>
+					<div class="col-lg-4 address-grid">
+						<div class="row address-info">
+							<div class="col-md-4 address-left text-center">
+								<i class="fas fa-mobile-alt"></i>
+							</div>
+							<div class="col-md-8 address-right text-left">
+								<h6>Telefon</h6>
+								<p>@Model.ContactUsPhone</p>
+
+							</div>
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="container">
+			<div class="contact_grid_right">
+				<form id="contatcForm" method="post" novalidate>
+					<div class="row contact_left_grid">
+						<div class="col-md-6 con-left">
+							<div class="form-group">
+								<label for="validationCustom01 my-2">Ad Soyad</label>
+								<input class="form-control" type="text" id="name" name="ContactName" placeholder="" required="">
+							</div>
+							<div class="form-group">
+								<label for="exampleFormControlInput1">Email</label>
+								<input class="form-control" type="email" id="mail" name="ContactMail" placeholder="" required="">
+							</div>
+							<div class="form-group">
+								<label for="validationCustom03 my-2">Başlık</label>
+								<input class="form-control" type="text" id="subject" name="ContactSubject" placeholder="" required="">
+							</div>
+							<input class="form-control" type="hidden" name="ContactDate" value="@DateTime.Now.ToShortDateString()" >
+						</div>
+						<div class="col-md-6 con-right">
+							<div class="form-group">
+								<label for="textarea">Mesaj</label>
+								<textarea id="textarea" name="ContactMessage" placeholder=""></textarea>
+								<span class="result small text-center" id="result_contact" style="display:inline-block;"></span>
+							</div>
+							<input class="form-control" id="submitContact" type="button" value="Gönder">
+
+						</div>
+					</div>
+				</form>
+												
+			</div>
+		</div>
+	</section>
+
+	<script>
+	$(document).ready(function(){
+		$('#submitContact').click(function(){
+
+			var contactEmail = $('#mail').val();
+
+			function IsEmail(email) {
+			  var regex = /^(([^<>()[\]\.,;:\s@@\"]+(\.[^<>()[\]\.,;:\s@@\"]+)*)|(\".+\"))@@(([^<>()[\]\.,;:\s@@\"]+\.)+[^<>()[\]\.,;:\s@@\"]{2,})$/;
+			  if(!regex.test(email)) {
+				return false;
+			  }else{
+				return true;
+			  }
+			}
+
+			if(
+				$('#name').val()!="" &&
+				$('#mail').val()!="" &&
+				$('#subject').val()!="" &&
+				$('#textarea').val()!=""
+			){
+				if(IsEmail(contactEmail)==false){
+					 $('#result_contact').css('color','red');
+					 $('#result_contact').text('*Email adresi geçerli değil.');
+					 $('#result_contact').fadeIn();
+
+					setTimeout(function () {
+						 $('#result_contact').text('');
+					}, 2000);
+
+					 return false;
+				}else{
+					var commentData=$('#commentForm').serialize();
+
+					$.ajax({
+						url:"/Contact/AddContact",
+						type:"POST",
+						dataType:"json",
+						data:commentData,
+						success:function(data){
+							 $('#result_contact').css('color','green');
+							 $('#result_contact').text(data.message);
+							 $('#result_contact').fadeIn();
+
+							 $('#name').val('');
+							 $('#mail').val('');
+							 $('#subject').val('');
+							 $('#textarea').val('');
+
+							 setTimeout(function () {
+									 $('#result_contact').text('');
+							 }, 5000);
+						}
+					});
+				}
+			}else{
+				$('#result_contact').css('color','red');
+				$('#result_contact').text('*Yukarıdaki alanlar boş bırakılamaz.');
+				$('#result_contact').fadeIn();
+
+					setTimeout(function () {
+						 $('#result_contact').text('');
+					}, 2000);
+			}
+
+		});
+	});
+
+</script>

@@ -191,15 +191,33 @@ namespace DataAccessLayer.Migrations
                     b.Property<string>("ContactName")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<bool>("ContactStatus")
-                        .HasColumnType("bit");
-
                     b.Property<string>("ContactSubject")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("ContactId");
 
                     b.ToTable("Contacts");
+                });
+
+            modelBuilder.Entity("EntityLayer.Concrete.ContactUs", b =>
+                {
+                    b.Property<int>("ContactUSId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("ContactUsAdress")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ContactUsMail")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ContactUsPhone")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("ContactUSId");
+
+                    b.ToTable("ContactUs");
                 });
 
             modelBuilder.Entity("EntityLayer.Concrete.Subscriber", b =>

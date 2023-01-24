@@ -1139,7 +1139,7 @@ footer {
 	border-radius:0;
 }
 
-.subscribe-main button[type="submit"] {
+.subscribe-main button[type="button"] {
 	color: #0e0f10;
 	font-size: 15px;
 	font-weight: 600;
@@ -1158,7 +1158,7 @@ footer {
 	border-radius:0;
 }
 
-.subscribe-main button[type="submit"]:hover {
+.subscribe-main button[type="button"]:hover {
 	color: #fff;
 	background: #01cd74;
 }

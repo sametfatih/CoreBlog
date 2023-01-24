@@ -37,7 +37,7 @@ namespace BusinessLayer.Concrete
 
         public About GetByID(int id)
         {
-            throw new NotImplementedException();
+            return _aboutDal.Get(a => a.AboutId == id);
         }
 
         public void Update(About entity)

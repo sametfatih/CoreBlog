@@ -177,3 +177,6 @@ D:\c#\Blog-Project\Blog-Project\obj\Debug\net5.0\Razor\Views\Shared\Components\B
 D:\c#\Blog-Project\Blog-Project\obj\Debug\net5.0\Razor\Views\Shared\Components\Categories\Default.cshtml.g.cs
 D:\c#\Blog-Project\Blog-Project\obj\Debug\net5.0\Razor\Views\Shared\Components\NewBlogs\Default.cshtml.g.cs
 D:\c#\Blog-Project\Blog-Project\obj\Debug\net5.0\Razor\Views\Shared\Components\LeaveAComment\Default.cshtml.g.cs
+D:\c#\Blog-Project\Blog-Project\obj\Debug\net5.0\Razor\Views\Error\Error.cshtml.g.cs
+D:\c#\Blog-Project\Blog-Project\obj\Debug\net5.0\Razor\Views\About\Index.cshtml.g.cs
+D:\c#\Blog-Project\Blog-Project\obj\Debug\net5.0\Razor\Views\Contact\Index.cshtml.g.cs

@@ -26,4 +26,8 @@
     <ProjectReference Include="..\EntityLayer\EntityLayer.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="wwwroot\colorlib-error-404-20\css\" />
+  </ItemGroup>
+
 </Project>

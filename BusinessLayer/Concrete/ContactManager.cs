@@ -21,7 +21,7 @@ namespace BusinessLayer.Concrete
 
         public void Add(Contact entity)
         {
-            throw new NotImplementedException();
+            _contactDal.Add(entity);
         }
 
         public void Delete(int id)

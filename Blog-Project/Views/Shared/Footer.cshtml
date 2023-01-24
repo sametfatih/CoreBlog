@@ -74,13 +74,13 @@
 					<h2>Bültenimize abone olun</h2>
 					<div class="subscribe-main text-left">
 							<div class="subscribe-form">
-									<form action="#" method="post" class="subscribe_form">
-										<input class="form-control" type="email" placeholder="Email adresinizi giriniz..." required="">
-										<button type="submit" class="btn btn-primary submit">Abone ol</button>
+									<form method="post" id="footerSubmitForm" novalidate>
+										<input class="form-control" type="email" id="subscribeEmail2" name="SubscriberMail" placeholder="Email adresinizi giriniz..." required="">
+										<button type="button" id="footerSubmitButton" class="btn btn-primary submit">Abone ol</button>
 									</form>
 									<div class="clearfix"> </div>
 						   </div>
-						<p>Gizliliğinize saygı duyuyoruz. Asla spam mail yoktur!</p>
+						<p id="result_footer">Gizliliğinize saygı duyuyoruz. Asla spam mail yoktur!</p>
 					</div>
 					<!-- //subscribe -->
 				</div>
@@ -127,3 +127,62 @@
 			<!-- //footer -->
 		</div>
 	</footer>
+
+<script>  
+	$(document).ready(function () {  
+
+		$("#footerSubmitButton").click(function (e) {  
+			//Serialize the form datas.  
+
+			var subscribeEmail2 = $('#subscribeEmail2').val();
+
+			function IsEmail(email) {
+			  var regex = /^(([^<>()[\]\.,;:\s@@\"]+(\.[^<>()[\]\.,;:\s@@\"]+)*)|(\".+\"))@@(([^<>()[\]\.,;:\s@@\"]+\.)+[^<>()[\]\.,;:\s@@\"]{2,})$/;
+			  if(!regex.test(email)) {
+				return false;
+			  }else{
+				return true;
+			  }
+			}
+
+			if(IsEmail(subscribeEmail2)==false){
+				 $('#result_footer').css('color','red')
+				 $('#result_footer').text('*Email adresi geçerli değil.');
+				 $('#result_footer').fadeIn();
+
+				setTimeout(function () {
+					 $('#result_footer').css('color','#777');
+					 $('#result_footer').text('Gizliliğinize saygı duyuyoruz. Asla spam mail yoktur!');
+
+				}, 2000);
+
+				 return false;
+			}
+			else{
+
+				var valdata = $("#footerSubmitForm").serialize();
+
+				$.ajax({  
+
+					url: "/Subscriber/SubscribeMail",  
+					type: "POST", 
+					dataType: 'json',
+					contentType: 'application/x-www-form-urlencoded; charset=UTF-8',  
+					data: valdata,
+					success:function(data) {
+
+						$('#result_footer').css('color','green')
+						$('#result_footer').text(data.message);
+						$('#result_footer').fadeIn();
+						$('#subscribeEmail2').val('');
+
+						setTimeout(function() {
+						  $('#result_footer').css('color','#777');
+						  $('#result_footer').text('Gizliliğinize saygı duyuyoruz. Asla spam mail yoktur!');
+						}, 3000);
+					 }
+				});  
+			}    
+		});  
+	});  
+</script>  
