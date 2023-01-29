@@ -1,9 +1,11 @@
 ﻿using BusinessLayer.Concrete;
 using DataAccessLayer.Concrete.EntityFramework;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Blog_Project.Controllers
 {
+    [AllowAnonymous]
     public class BlogController : Controller
     {
         BlogManager _blogManager = new BlogManager(new EfBlogDal());

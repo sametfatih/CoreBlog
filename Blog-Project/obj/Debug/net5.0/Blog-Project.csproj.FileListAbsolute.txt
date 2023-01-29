@@ -180,3 +180,7 @@ D:\c#\Blog-Project\Blog-Project\obj\Debug\net5.0\Razor\Views\Shared\Components\L
 D:\c#\Blog-Project\Blog-Project\obj\Debug\net5.0\Razor\Views\Error\Error.cshtml.g.cs
 D:\c#\Blog-Project\Blog-Project\obj\Debug\net5.0\Razor\Views\About\Index.cshtml.g.cs
 D:\c#\Blog-Project\Blog-Project\obj\Debug\net5.0\Razor\Views\Contact\Index.cshtml.g.cs
+D:\c#\Blog-Project\Blog-Project\obj\Debug\net5.0\Razor\Views\Shared\Components\BlogListFooter\Default.cshtml.g.cs
+D:\c#\Blog-Project\Blog-Project\obj\Debug\net5.0\Razor\Views\Shared\Components\SocialMedia\Default.cshtml.g.cs
+D:\c#\Blog-Project\Blog-Project\obj\Debug\net5.0\Razor\Views\Shared\AuthorLayout.cshtml.g.cs
+D:\c#\Blog-Project\Blog-Project\obj\Debug\net5.0\Razor\Views\Author\Index.cshtml.g.cs

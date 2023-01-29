@@ -49,10 +49,10 @@ namespace BusinessLayer.Concrete
 			return _blogDal.Get(b => b.BlogId == id);
 		}
 
-        public IEnumerable<Blog> GetNewBlogs()
+        public IEnumerable<Blog> GetNewBlogs(int number)
         {
-            return _blogDal.GetAll().OrderByDescending(b=>b.BlogCreateDate).Take(3);
-        }
+			return _blogDal.GetAll().OrderByDescending(b => b.BlogCreateDate).Take(number);
+		}
 
         public void Update(Blog entity)
 		{

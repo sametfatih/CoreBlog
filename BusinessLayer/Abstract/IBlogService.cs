@@ -12,6 +12,6 @@ namespace BusinessLayer.Abstract
     {
         List<Blog> GetAllWithCategory();
         IEnumerable<Blog> GetBlogsForAuthorId(int id);
-        IEnumerable<Blog> GetNewBlogs();
+        IEnumerable<Blog> GetNewBlogs(int number);
     }
 }

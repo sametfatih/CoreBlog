@@ -4,9 +4,11 @@ using BusinessLayer.Concrete;
 using DataAccessLayer.Concrete.EntityFramework;
 using BusinessLayer.ValidationRules;
 using FluentValidation.Results;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Blog_Project.Controllers
 {
+    [AllowAnonymous]
     public class RegisterController : Controller
     {
         AuthorManager _authorManager = new AuthorManager(new EfAuthorDal());

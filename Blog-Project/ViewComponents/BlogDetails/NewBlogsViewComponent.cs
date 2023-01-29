@@ -10,7 +10,7 @@ namespace Blog_Project.ViewComponents.BlogDetails
 
         public IViewComponentResult Invoke()
         {
-            var blogs = blogManager.GetNewBlogs();
+            var blogs = blogManager.GetNewBlogs(6);
             return View(blogs);
         }
     }

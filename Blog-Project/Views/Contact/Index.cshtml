@@ -131,13 +131,13 @@
 
 					 return false;
 				}else{
-					var commentData=$('#commentForm').serialize();
+					var contactData=$('#contatcForm').serialize();
 
 					$.ajax({
 						url:"/Contact/AddContact",
 						type:"POST",
 						dataType:"json",
-						data:commentData,
+						data:contactData,
 						success:function(data){
 							 $('#result_contact').css('color','green');
 							 $('#result_contact').text(data.message);

@@ -2,14 +2,17 @@
 using DataAccessLayer.Concrete;
 using DataAccessLayer.Concrete.EntityFramework;
 using EntityLayer.Concrete;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Blog_Project.Controllers
 {
+	[AllowAnonymous]
 	public class ContactController : Controller
 	{
 		ContactManager _contactManager = new ContactManager(new EfContactDal());
 		ContactUsManager _contactUsManager = new ContactUsManager(new EfContactUsDal());
+
 		public IActionResult Index()
 		{
 			var contact = _contactUsManager.GetByID(1);

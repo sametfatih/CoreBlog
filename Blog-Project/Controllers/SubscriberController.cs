@@ -1,10 +1,12 @@
 ﻿using BusinessLayer.Concrete;
 using DataAccessLayer.Concrete.EntityFramework;
 using EntityLayer.Concrete;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Blog_Project.Controllers
 {
+	[AllowAnonymous]
 	public class SubscriberController : Controller
 	{
 		SubscriberManager _subscriberManager = new SubscriberManager(new EfSubscriberDal());
