@@ -1,0 +1,216 @@
+﻿
+@{
+    ViewData["Title"] = "AuthorBlogAdd";
+    Layout = "~/Views/Shared/AuthorLayout.cshtml";
+}
+
+<div class="card">
+    <div class="card-body">
+        <h4 class="card-title">Blog Oluştur</h4>
+        <p class="card-description">  </p>
+        <form id="blogAddForm" method="post" class="forms-sample">
+            <div class="row">
+                <div class="col-8">
+                    <div class="form-group">
+                        <label for="exampleInputName1">Başlık</label>
+                        <input type="text" class="form-control" name="BlogTitle" id="blogTitle" placeholder="Örn. Ege'nin Gözbebeği Marmaris...'" required>
+                    </div>
+                </div>
+                <input type="hidden" class="form-control" name="BlogCreateDate" value="@DateTime.Now.ToShortDateString()" required="">
+                <input type="hidden" class="form-control" id="authorId" name="AuthorId" value="1" required="">
+                <input type="hidden" class="form-control" id="blog-image" name="BlogImagePath" value="" required="">
+
+                <div class="col-4">
+                    <div class="form-group">
+                        <label for="exampleSelectGender">Kategori</label>
+                        <select class="form-control" name="CategoryId" form="blogAddForm" id="exampleSelectGender" required>
+                            <option selected disabled value="">Kategori seçiniz...</option>
+                            @foreach (var category in ViewBag.categoryList)
+                            {
+                                <option value=@category.Value>@category.Text</option>
+                            }
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-8">
+                    <div class="form-group">
+                        <label>Görsel</label>
+                        <input type="file" id="upload-file" name="img[]" class="file-upload-default">
+                        <div class="input-group col-xs-12">
+                            <input type="text" class="form-control file-upload-info" disabled placeholder="Görsel Yükle">
+                            <span class="input-group-append">
+                                <button class="file-upload-browse btn btn-gradient-primary" type="button">Yükle</button>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col" style="margin-top: auto; margin-bottom: auto;">
+                    <span id="upload-message"></span>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="exampleTextarea1">İçerik</label>
+                <textarea id="summernote" name="BlogContent" required=""></textarea>
+            </div>
+            <div class="group d-flex justify-content-between">
+                <div class="group">
+                    <button type="submit" class="btn btn-gradient-primary mr-2">Oluştur</button>
+                    <button type="button" class="btn btn-light" onclick="history.back()">Vazgeç</button>
+                </div>
+                <button type="button" id="previewButton" class="btn btn-gradient-primary">Önizleme</button>
+            </div>
+
+
+        </form>
+    </div>
+</div>
+
+<!-- File upload -->
+<script src="~/writer/assets/js/file-upload.js"></script>
+
+<script>
+
+    $('#summernote').summernote({
+        height: 500,
+        minHeight: 300,
+        maxHeight: null,
+        callbacks: {
+            onImageUpload: function (files) {
+                for (let i = 0; i < files.length; i++) {
+                    UploadImage(files[i]);
+                }
+            },
+            onPaste: function (e) {
+                var bufferText = ((e.originalEvent || e).clipboardData || window.clipboardData).getData('Text');
+                e.preventDefault();
+                document.execCommand('insertText', false, bufferText);
+            }
+        },
+        toolbar: [
+            ['style', ['style']],
+            ['font', ['bold', 'underline' ]],
+            ['color', ['color']],
+            ['para', ['ul', 'ol', 'paragraph']],
+            ['insert', ['link', 'picture']],
+            ['view', ['fullscreen'/*, 'codeview'*/]],
+        ],
+        styleTags: ['p', 'h4'],
+        fontNames: ['Poppins'],
+        fontNamesIgnoreCheck: ['Poppins'],
+        addDefaultFonts: false,
+
+    });
+    $('#summernote').summernote('Poppins', 'sans-serif')
+
+
+    function UploadImage(file) {
+
+                    var url = '@Url.Action("UploadBlogImage", "Image")';
+
+                    formData = new FormData();
+                    formData.append("uploadedFile", file);
+                    $.ajax({
+                        type: 'POST',
+                        url: url,
+                        data: formData,
+                        cache: false,
+                        contentType: false,
+                        processData: false,
+                        success: function (FileUrl) {
+                           // alert(FileUrl);
+                            var imgNode = document.createElement('img');
+                            imgNode.src = FileUrl;
+                            $('#summernote').summernote('insertNode', imgNode);
+                        },
+                        error: function (data) {
+                            alert(data.responseText);
+                        }
+                    });
+    }
+
+</script>
+<script>
+
+    $('#upload-file').on("change", function () {
+
+        console.log($('#upload-file').prop('files'));
+        var files = $('#upload-file').prop('files');
+        for (let i = 0; i < files.length; i++) {
+            UploadImage2(files[i]);
+        }
+
+    });
+
+    function UploadImage2(file) {
+
+                    var url = '@Url.Action("UploadBlogImage", "Image")';
+
+                    formData = new FormData();
+                    formData.append("uploadedFile", file);
+                    $.ajax({
+                        type: 'POST',
+                        url: url,
+                        data: formData,
+                        cache: false,
+                        contentType: false,
+                        processData: false,
+                        success: function (FileUrl) {
+                           // alert(FileUrl);
+
+                            $('#blog-image').val(FileUrl);
+
+                            $('#upload-message').css('color', '#1bcfb4')
+                            $('#upload-message').text('*Resim yüklendi.');
+                            $('#upload-message').fadeIn();
+
+                        },
+                        error: function (data) {
+
+                            $('#upload-message').val("Resim yüklenemedi lütfen tekrar deneyin");
+                            $('#upload-message').css('color', '#fe7c96')
+                            $('#upload-message').text('*Resim yüklenemedi lütfen tekrar deneyin.');
+                            $('#upload-message').fadeIn();
+
+                            setTimeout(function () {
+                                $('#upload-message').text('');
+
+                            }, 5000);
+                        }
+                    });
+    }
+
+</script>
+<script>
+
+    $('#previewButton').on("click", function () {
+
+        $('#blogAddForm').attr('action', "/Blog/BlogPreview");
+        $('#blogAddForm').attr('target', "_blank").submit();
+
+        //window.open("/Blog/BlogPreview", '_blank');
+
+                //var valdata = $("#blogAddForm").serialize();
+
+       
+               
+                //$.ajax({
+
+                //    url: "/Blog/BlogPreview2",
+                //    type: "POST",
+                //    dataType: 'json',
+                //    contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
+                //    data: valdata,
+                //    success: function (data) {
+                //        window.open(data.openUrl, "_blank")
+                //    },
+                //    error: function (e) {
+                //        console.log('Error');
+                //        console.log(e)
+                //    }
+                //});
+    });
+
+</script>

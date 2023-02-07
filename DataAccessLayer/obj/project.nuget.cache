@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "yY8CB/OipNrysONvz5aVNgN/EiPFQs2XaUEvidwhnufRJlLVGlsPgYQdfH5EeJvfBMuQwYx8mUPhIHXhaxsnTA==",
+  "dgSpecHash": "a6Fsqw0UXnPlFw2bxeiAyOaGFlsPoX+CmvrtrkXxXbVlzN+Ers4x762OTsa8Cfj3/d34RnbKm1eWHwCjljc3nQ==",
   "success": true,
   "projectFilePath": "D:\\c#\\Blog-Project\\DataAccessLayer\\DataAccessLayer.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\samet\\.nuget\\packages\\htmlagilitypack\\1.11.46\\htmlagilitypack.1.11.46.nupkg.sha512",
     "C:\\Users\\samet\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\samet\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
     "C:\\Users\\samet\\.nuget\\packages\\microsoft.data.sqlclient\\2.0.1\\microsoft.data.sqlclient.2.0.1.nupkg.sha512",

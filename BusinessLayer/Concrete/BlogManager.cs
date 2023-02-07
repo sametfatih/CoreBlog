@@ -21,7 +21,7 @@ namespace BusinessLayer.Concrete
 
 		public void Add(Blog entity)
 		{
-			throw new NotImplementedException();
+			_blogDal.Add(entity);
 		}
 
 		public void Delete(int id)
@@ -36,12 +36,16 @@ namespace BusinessLayer.Concrete
 
 		public List<Blog> GetAllWithCategory()
 		{
-			return _blogDal.GetAllWithCategory();
+			return _blogDal.GetAllWithCategory(b=>b.BlogStatus==true);
 		}
 
-        public IEnumerable<Blog> GetBlogsForAuthorId(int id)
+        public IEnumerable<Blog> GetBlogsForAuthorIdTake6(int id)
         {
-            return _blogDal.GetAll(b=>b.AuthorId== id).Take(6);
+            return _blogDal.GetAllWithCategory(b=>b.AuthorId== id && b.BlogStatus==true).Take(6);
+        }
+		public IEnumerable<Blog> GetBlogsForAuthorId(int id)
+        {
+            return _blogDal.GetAllWithCategory(b=>b.AuthorId== id);
         }
 
         public Blog GetByID(int id)
@@ -51,12 +55,17 @@ namespace BusinessLayer.Concrete
 
         public IEnumerable<Blog> GetNewBlogs(int number)
         {
-			return _blogDal.GetAll().OrderByDescending(b => b.BlogCreateDate).Take(number);
+			return _blogDal.GetAll(b=> b.BlogStatus==true).OrderByDescending(b => b.BlogCreateDate).Take(number);
 		}
 
         public void Update(Blog entity)
 		{
-			throw new NotImplementedException();
+			_blogDal.Update(entity);
 		}
-	}
+
+        public IEnumerable<Blog> GetBlogsWithAuthorAndCategory()
+        {
+			return _blogDal.GetBlogsWithAuthorAndCategory(b => b.BlogStatus == true).OrderByDescending(b => b.BlogCreateDate).Take(5);
+        }
+    }
 }

@@ -25,8 +25,8 @@
 					<div class="blog-grid-top">
 						<div class="b-grid-top">
 							<div class="blog_info_left_grid">
-								<a href="single.html">
-									<img src="~/images/blogs/b1.jpg" class="img-fluid" alt="">
+								<a href="#">
+									<img src="@Model.BlogImagePath" class="img-fluid" alt="">
 								</a>
 							</div>
 							<div class="blog-info-middle">
@@ -49,9 +49,9 @@
 						</div>
 
 						<h3>
-							<a >@Model.BlogTitle</a>
+							<a style="color:#555555;" >@Model.BlogTitle</a>
 						</h3>
-						<p>@Model.BlogContent</p>
+						<div class="blog-detail" >@Html.Raw(Model.BlogContent)</div>
 					
 					</div>
 

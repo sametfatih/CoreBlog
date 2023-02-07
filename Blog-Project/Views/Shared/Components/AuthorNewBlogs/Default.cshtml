@@ -1,0 +1,41 @@
+﻿@model IEnumerable<Blog>
+
+<div class="col-12 grid-margin">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title d-flex justify-content-between">
+                <a>Yeni Yayınlanan Bloglar</a>
+                <label class="badge badge-gradient-warning small" style="color:white;"><i class="mdi mdi-star mr-1"></i>Yeni!</label>
+            </h4>
+
+            <div class="table-responsive">
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th style="width: 15%"> Yazar </th>
+                            <th style="width: 25%"> Başlık </th>
+                            <th style="width: 10%"> Kategori </th>
+                            <th style="width: 40%"> İçerik </th>
+                            <th style="width: 10%"> Tarih </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var blog in Model)
+                        {
+                            <tr class="clickable-row" data-href="/Blog/BlogDetails/@blog.BlogId" data-target="_blank">
+                                <td class="overflow-text">
+                                    <img src="~/writer/assets/images/faces/face1.jpg" class="mr-2" alt="image"> @blog.Author.AuthorName
+                                </td>
+                                <td class="overflow-text"> @blog.BlogTitle </td>
+                                <td> <label class="badge badge-gradient-info small" style="color:white;">@blog.Category.CategoryName</label> </td>
+                                <td class="overflow-text"> @blog.BlogContentText </td>
+                                <td class="overflow-text"> @(((DateTime)blog.BlogCreateDate).ToString("MMM dd, yyyy")) </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+

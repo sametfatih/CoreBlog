@@ -9,7 +9,7 @@ namespace Blog_Project.ViewComponents.BlogDetails
        BlogManager blogManager = new BlogManager(new EfBlogDal());
         public IViewComponentResult Invoke(int id)
         {
-            var blogs=blogManager.GetBlogsForAuthorId(id);
+            var blogs=blogManager.GetBlogsForAuthorIdTake6(id);
             return View(blogs);
         }
     }

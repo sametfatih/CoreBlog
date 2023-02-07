@@ -31,25 +31,25 @@
 										<a >
 												<i class="far fa-calendar-alt"></i> @(((DateTime)blog.BlogCreateDate).ToString("MMM dd, yyyy"))</a>
 									</li>
-									<li class="mx-2">
+									<li>
 										<a >
 											<i class="far fa-comment"></i> 21</a>
 									</li>
 									<li>
-										<a >
-											<i class="fas fa-eye"></i> 2000</a>
+										
+                                            <span class="badge" style="border-radius: 0px; background-color: @blog.Category.CategoryColorHex; color:white; font-weight:500; "> @blog.Category.CategoryName</span>
 									</li>
 
 								</ul>
 								<h5 class="card-title">
 										<a href="/Blog/BlogDetails/@blog.BlogId">@blog.BlogTitle</a>
 								</h5>
-								@if (blog.BlogContent.Length >= 200)
+								@if (blog.BlogContentText.Length >= 200)
 								{
-									<p class="card-text mb-3">@blog.BlogContent.Substring(0, blog.BlogContent.Substring(0, 200).LastIndexOf(" "))...</p>								}
+									<p class="card-text mb-3">@blog.BlogContentText.Substring(0, blog.BlogContentText.Substring(0, 200).LastIndexOf(" "))...</p>								}
 								else
 								{ 
-									<p class="card-text mb-3">@blog.BlogContent</p>
+									<p class="card-text mb-3">@blog.BlogContentText</p>
 								}
 								<a href="/Blog/BlogDetails/@blog.BlogId" class="btn btn-primary read-m">Devamını Oku</a>
 							</div>

@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "wJ9rK7sy17FlYvFWgBx576iNZ/GhzKc5qxH0CcGsEXEZEcIMy9yv6Ub8XkJavIbjJ47U1mRRl2ngzRQ+5ffM4Q==",
+  "dgSpecHash": "kNZdCxBlTxYb66dvaL6M+2OzoC0l7AWGi7dQaXsq1eo/Y4DpaqUf7PZ6vDCWnGLxG+tf6gYhIXdCffgRFJU+UA==",
   "success": true,
   "projectFilePath": "D:\\c#\\Blog-Project\\EntityLayer\\EntityLayer.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\samet\\.nuget\\packages\\htmlagilitypack\\1.11.46\\htmlagilitypack.1.11.46.nupkg.sha512",
     "C:\\Users\\samet\\.nuget\\packages\\microsoft.entityframeworkcore\\5.0.17\\microsoft.entityframeworkcore.5.0.17.nupkg.sha512",
     "C:\\Users\\samet\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\5.0.17\\microsoft.entityframeworkcore.abstractions.5.0.17.nupkg.sha512",
     "C:\\Users\\samet\\.nuget\\packages\\microsoft.entityframeworkcore.analyzers\\5.0.17\\microsoft.entityframeworkcore.analyzers.5.0.17.nupkg.sha512",

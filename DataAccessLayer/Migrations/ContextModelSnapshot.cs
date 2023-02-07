@@ -92,6 +92,9 @@ namespace DataAccessLayer.Migrations
                     b.Property<string>("BlogContent")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("BlogContentText")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<DateTime>("BlogCreateDate")
                         .HasColumnType("datetime2");
 
@@ -125,6 +128,9 @@ namespace DataAccessLayer.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("CategoryColorHex")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("CategoryDescription")
                         .HasColumnType("nvarchar(max)");

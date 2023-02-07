@@ -184,3 +184,10 @@ D:\c#\Blog-Project\Blog-Project\obj\Debug\net5.0\Razor\Views\Shared\Components\B
 D:\c#\Blog-Project\Blog-Project\obj\Debug\net5.0\Razor\Views\Shared\Components\SocialMedia\Default.cshtml.g.cs
 D:\c#\Blog-Project\Blog-Project\obj\Debug\net5.0\Razor\Views\Shared\AuthorLayout.cshtml.g.cs
 D:\c#\Blog-Project\Blog-Project\obj\Debug\net5.0\Razor\Views\Author\Index.cshtml.g.cs
+D:\c#\Blog-Project\Blog-Project\obj\Debug\net5.0\Razor\Views\Blog\AuthorBlogList.cshtml.g.cs
+D:\c#\Blog-Project\Blog-Project\obj\Debug\net5.0\Razor\Views\Blog\AuthorBlogAdd.cshtml.g.cs
+D:\c#\Blog-Project\Blog-Project\bin\Debug\net5.0\HtmlAgilityPack.dll
+D:\c#\Blog-Project\Blog-Project\obj\Debug\net5.0\Razor\Views\Blog\AuthorBlogUpdate.cshtml.g.cs
+D:\c#\Blog-Project\Blog-Project\obj\Debug\net5.0\Razor\Views\Dashboard\Index.cshtml.g.cs
+D:\c#\Blog-Project\Blog-Project\obj\Debug\net5.0\Razor\Views\Shared\Components\AuthorNewBlogs\Default.cshtml.g.cs
+D:\c#\Blog-Project\Blog-Project\obj\Debug\net5.0\Razor\Views\Blog\BlogPreview.cshtml.g.cs

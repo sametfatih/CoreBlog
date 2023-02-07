@@ -1,0 +1,277 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/AuthorLayout.cshtml";
+}
+
+
+<div class="page-header">
+    <h3 class="page-title">
+        <span class="page-title-icon bg-gradient-primary text-white mr-2">
+            <i class="mdi mdi-home"></i>
+        </span> Kontrol Paneli
+    </h3>
+
+</div>
+<div class="row">
+    <div class="col-md-4 stretch-card grid-margin">
+        <div class="card bg-gradient-danger card-img-holder text-white">
+            <div class="card-body">
+                <img src="~/writer/assets/images/dashboard/circle.svg" class="card-img-absolute" alt="circle-image" />
+                <h4 class="font-weight-normal mb-3">
+                    Blog Sayınız <i class="mdi mdi-checkbox-multiple-blank mdi-24px float-right"></i>
+                </h4>
+                <h2 class="mb-5">12</h2>
+                <h6 class="card-text">Ortalama Blog Sayısı : 9</h6>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4 stretch-card grid-margin">
+        <div class="card bg-gradient-info card-img-holder text-white">
+            <div class="card-body">
+                <img src="~/writer/assets/images/dashboard/circle.svg" class="card-img-absolute" alt="circle-image" />
+                <h4 class="font-weight-normal mb-3">
+                    Yorum Sayınız <i class="mdi mdi-comment-text-multiple mdi-24px float-right"></i>
+                </h4>
+                <h2 class="mb-5">87</h2>
+                <h6 class="card-text">Ortalama Yorum Sayısı : 14</h6>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4 stretch-card grid-margin">
+        <div class="card bg-gradient-success card-img-holder text-white">
+            <div class="card-body">
+                <img src="~/writer/assets/images/dashboard/circle.svg" class="card-img-absolute" alt="circle-image" />
+                <h4 class="font-weight-normal mb-3">
+                    Beğenilme Oranınız <i class="mdi mdi-heart mdi-24px float-right"></i>
+                </h4>
+                <h2 class="mb-5">%67</h2>
+                <h6 class="card-text">Ortalama : %74</h6>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    @await Component.InvokeAsync("AuthorNewBlogs")
+</div>
+<div class="row">
+    <div class="col-md-7 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title d-flex justify-content-between">
+                    <a>En Beğenilen 5 Yazar</a>
+                    <label class="badge badge-gradient-warning small" style="color:white;"><i class="mdi mdi-star mr-1"></i>Yeni!</label>
+                </h4>
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th class="overflow-text" style="width:5%"> # </th>
+                                <th class="overflow-text" style="width:20%"> Ad </th>
+                                <th class="overflow-text" style="width:8%"> Blog Sayısı </th>
+                                <th class="overflow-text" style="width:20%"> Son Yayınlanan Blog </th>
+                                <th class="overflow-text" style="width:25%"> Ort. Beğenilme </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td> 1 </td>
+                                <td class="overflow-text">  <img src="~/writer/assets/images/faces/face1.jpg" class="mr-2" alt="image"> Samet Fatih Gözüm </td>
+                                <td>
+                                    <span class="badge badge-gradient-danger">
+                                        14
+                                    </span>
+                                </td>
+                                <td class="overflow-text"> Spring Boot </td>
+                                <td>
+                                    <div class="progress" style="height:16px;">
+                                        <div class="progress-bar bg-gradient-success" role="progressbar" style="width: 48%" aria-valuenow="48" aria-valuemin="0" aria-valuemax="100">%48</div>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td> 2 </td>
+                                <td class="overflow-text">  <img src="~/writer/assets/images/faces/face1.jpg" class="mr-2" alt="image"> Samet Fatih Gözüm </td>
+                                <td>
+                                    <span class="badge badge-gradient-danger">
+                                        14
+                                    </span>
+                                </td>
+                                <td class="overflow-text"> Spring Boot </td>
+                                <td>
+                                    <div class="progress" style="height:16px;">
+                                        <div class="progress-bar bg-gradient-success" role="progressbar" style="width: 48%" aria-valuenow="48" aria-valuemin="0" aria-valuemax="100">%48</div>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td> 3 </td>
+                                <td class="overflow-text">  <img src="~/writer/assets/images/faces/face1.jpg" class="mr-2" alt="image"> Samet Fatih Gözüm </td>
+                                <td>
+                                    <span class="badge badge-gradient-danger">
+                                        14
+                                    </span>
+                                </td>
+                                <td class="overflow-text"> Spring Boot </td>
+                                <td>
+                                    <div class="progress" style="height:16px;">
+                                        <div class="progress-bar bg-gradient-success" role="progressbar" style="width: 48%" aria-valuenow="48" aria-valuemin="0" aria-valuemax="100">%48</div>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td> 4 </td>
+                                <td class="overflow-text">  <img src="~/writer/assets/images/faces/face1.jpg" class="mr-2" alt="image"> Samet Fatih Gözüm </td>
+                                <td>
+                                    <span class="badge badge-gradient-danger">
+                                        14
+                                    </span>
+                                </td>
+                                <td class="overflow-text"> Spring Boot </td>
+                                <td>
+                                    <div class="progress" style="height:16px;">
+                                        <div class="progress-bar bg-gradient-success" role="progressbar" style="width: 48%" aria-valuenow="48" aria-valuemin="0" aria-valuemax="100">%48</div>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td> 5 </td>
+                                <td class="overflow-text">  <img src="~/writer/assets/images/faces/face1.jpg" class="mr-2" alt="image"> Samet Fatih Gözüm </td>
+                                <td>
+                                    <span class="badge badge-gradient-danger">
+                                        14
+                                    </span>
+                                </td>
+                                <td class="overflow-text"> Spring Boot </td>
+                                <td>
+                                    <div class="progress" style="height:16px;">
+                                        <div class="progress-bar bg-gradient-success" role="progressbar" style="width: 48%" aria-valuenow="48" aria-valuemin="0" aria-valuemax="100">%48</div>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-5 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Yapılacaklar Listesi</h4>
+                <div class="add-items d-flex">
+                    <input type="text" class="form-control todo-list-input" placeholder="Bugün ne yapman gerekiyor?">
+                    <button class="add btn btn-gradient-primary font-weight-bold todo-list-add-btn" id="add-task">Ekle</button>
+                </div>
+                <div class="list-wrapper">
+                    <ul class="d-flex flex-column-reverse todo-list todo-list-custom">
+                        <li>
+                            <div class="form-check">
+                                <label class="form-check-label">
+                                    <input class="checkbox" type="checkbox"> Maillere bak
+                                </label>
+                            </div>
+                            <i class="remove mdi mdi-close-circle-outline"></i>
+                        </li>
+                        <li class="completed">
+                            <div class="form-check">
+                                <label class="form-check-label">
+                                    <input class="checkbox" type="checkbox" checked> Yorumlara dönüş yap
+                                </label>
+                            </div>
+                            <i class="remove mdi mdi-close-circle-outline"></i>
+                        </li>
+                        <li>
+                            <div class="form-check">
+                                <label class="form-check-label">
+                                    <input class="checkbox" type="checkbox"> Silifkeyi araştır
+                                </label>
+                            </div>
+                            <i class="remove mdi mdi-close-circle-outline"></i>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-12 grid-margin">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title d-flex justify-content-between">
+                    <a>Popüler Bloglar</a>
+                    <label class="badge badge-gradient-warning small" style="color:white;"><i class="mdi mdi-star mr-1"></i>Yeni!</label>
+                </h4>
+
+                <div class="table-responsive">
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th style="width: 5%"> # </th>
+                                <th style="width: 10%"> Yazar </th>
+                                <th style="width: 25%"> Başlık </th>
+                                <th style="width: 10%"> Kategori </th>
+                                <th style="width: 40%"> İçerik </th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="clickable-row" data-href="/Blog/BlogDetails/5" data-target="_blank">
+                                <td> 1 </td>
+                                <td>
+                                    <img src="~/writer/assets/images/faces/face1.jpg" class="mr-2" alt="image">
+                                </td>
+                                <td class="overflow-text">TOGG Yeni bir Devrim Başlatıyor </td>
+                                <td> <label class="badge badge-gradient-info small" style="color:white;">Teknoloji</label> </td>
+                                <td class="overflow-text"> Türkiye'de yerli otomobil üretebilmek için birlikte çalışma kararı alan şirket ve kuruluşlar, Kasım 2017'de Cumhurbaşkanı Recep Tayyip Erdoğan tarafından açıklandı. </td>
+
+                            </tr>
+                            <tr class="clickable-row" data-href="/Blog/BlogDetails/5" data-target="_blank">
+                                <td> 2 </td>
+                                <td>
+                                    <img src="~/writer/assets/images/faces/face1.jpg" class="mr-2" alt="image">
+                                </td>
+                                <td class="overflow-text">TOGG Yeni bir Devrim Başlatıyor </td>
+                                <td> <label class="badge badge-gradient-info small" style="color:white;">Teknoloji</label> </td>
+                                <td class="overflow-text"> Türkiye'de yerli otomobil üretebilmek için birlikte çalışma kararı alan şirket ve kuruluşlar, Kasım 2017'de Cumhurbaşkanı Recep Tayyip Erdoğan tarafından açıklandı. </td>
+
+                            </tr>
+                            <tr class="clickable-row" data-href="/Blog/BlogDetails/5" data-target="_blank">
+                                <td> 3 </td>
+                                <td>
+                                    <img src="~/writer/assets/images/faces/face1.jpg" class="mr-2" alt="image">
+                                </td>
+                                <td class="overflow-text">TOGG Yeni bir Devrim Başlatıyor </td>
+                                <td> <label class="badge badge-gradient-info small" style="color:white;">Teknoloji</label> </td>
+                                <td class="overflow-text"> Türkiye'de yerli otomobil üretebilmek için birlikte çalışma kararı alan şirket ve kuruluşlar, Kasım 2017'de Cumhurbaşkanı Recep Tayyip Erdoğan tarafından açıklandı. </td>
+
+                            </tr>
+                            <tr class="clickable-row" data-href="/Blog/BlogDetails/5" data-target="_blank">
+                                <td> 4 </td>
+                                <td>
+                                    <img src="~/writer/assets/images/faces/face1.jpg" class="mr-2" alt="image">
+                                </td>
+                                <td class="overflow-text">TOGG Yeni bir Devrim Başlatıyor </td>
+                                <td> <label class="badge badge-gradient-info small" style="color:white;">Teknoloji</label> </td>
+                                <td class="overflow-text"> Türkiye'de yerli otomobil üretebilmek için birlikte çalışma kararı alan şirket ve kuruluşlar, Kasım 2017'de Cumhurbaşkanı Recep Tayyip Erdoğan tarafından açıklandı. </td>
+
+                            </tr>
+                            <tr class="clickable-row" data-href="/Blog/BlogDetails/5" data-target="_blank">
+                                <td> 5 </td>
+                                <td>
+                                    <img src="~/writer/assets/images/faces/face1.jpg" class="mr-2" alt="image">
+                                </td>
+                                <td class="overflow-text">TOGG Yeni bir Devrim Başlatıyor </td>
+                                <td> <label class="badge badge-gradient-info small" style="color:white;">Teknoloji</label> </td>
+                                <td class="overflow-text"> Türkiye'de yerli otomobil üretebilmek için birlikte çalışma kararı alan şirket ve kuruluşlar, Kasım 2017'de Cumhurbaşkanı Recep Tayyip Erdoğan tarafından açıklandı. </td>
+
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

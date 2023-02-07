@@ -1,0 +1,92 @@
+﻿@model IEnumerable<Blog>
+@using HtmlAgilityPack
+
+
+@{
+    ViewData["Title"] = "AuthorBlogList";
+    Layout = "~/Views/Shared/AuthorLayout.cshtml";
+}
+
+<div class="grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Bloglarım</h4>
+            <p class="card-description">
+                Oluşturmuş olduğunuz blog sayısı <code><b>@Model.Count()</b></code>.
+            </p>
+
+
+
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th scope="col" style="width: 20%">Başlık</th>
+                        <th scope="col" style="width: 15%">Kategori</th>
+                        <th scope="col" style="width: 15%">Tarih</th>
+                        <th scope="col" style="width: 35%">İçerik</th>
+                        <th scope="col" style="width: 10%">Durum</th>
+                        <th scope="col" style="width: 10%">İşlemler</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var blog in Model)
+                    {
+                        <tr>
+
+                            <td class="overflow-text" data-label="Başlık">@blog.BlogTitle </td>
+                            <td data-label="Kategori"><label class="badge badge-gradient-info small" @*style="background-color:@blog.Category.CategoryColorHex;color:white;"*@>@blog.Category.CategoryName</label></td>
+                            <td class="overflow-text" data-label="Tarih">@(((DateTime)blog.BlogCreateDate).ToString("MMM dd, yyyy"))</td>
+                            <td class="overflow-text" data-label="İçerik">@blog.BlogContentText)</td>
+
+                            @if (blog.BlogStatus)
+                            {
+                                <td data-label="Durum"><label class="badge badge-gradient-success">Aktif</label></td>
+                            }
+                            else
+                            {
+                                <td data-label="Durum"><label class="badge badge-gradient-danger">Pasif</label></td>
+                            }
+                            <td data-label="İşlemler">
+                                <div class="btn-group">
+                                    <button type="button" class="btn btn-dark btn-icon btn-sm dropdown-toggle" data-toggle="dropdown"><i class="mdi mdi mdi-dots-vertical menu-icon"></i></button>
+                                    <div class="dropdown-menu p-2">
+                                        <a class="dropdown-item">
+                                            <a type="button" href="/Blog/AuthorBlogUpdate/@blog.BlogId" class="btn btn-gradient-info btn-block">
+                                                <i class="mdi mdi-file-check btn-icon-prepend"></i>
+                                                Düzenle
+                                            </a>
+                                        </a>
+                                        @if (@blog.BlogStatus)
+                                        {
+                                            <a class="dropdown-item">
+                                                <a type="button" class="btn btn-gradient-danger btn-block">
+                                                    <i class="mdi mdi-file-check btn-icon-prepend"></i>
+                                                    Pasif Yap
+                                                </a>
+                                            </a>
+                                        }
+                                        else
+                                        {
+                                            <a class="dropdown-item">
+                                                <a type="button" class="btn btn-gradient-success btn-block">
+                                                    <i class="mdi mdi-file-check btn-icon-prepend"></i>
+                                                    Aktif Yap
+                                                </a>
+                                            </a>
+                                        }
+                                        <a class="dropdown-item">
+                                            <a type="button" href="/Blog/BlogDetails/@blog.BlogId" target="_blank" class="btn btn-gradient-secondary btn-block">
+                                                <i class="mdi mdi-file-check btn-icon-prepend"></i>
+                                                Görüntüle
+                                            </a>
+                                        </a>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
