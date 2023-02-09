@@ -22,6 +22,14 @@ namespace DataAccessLayer.Concrete.EntityFramework
             }
         }
 
+        public Blog GetBlogByIdWithAuthorAndCategory(Expression<Func<Blog, bool>> filter = null)
+        {
+            using (var context = new Context())
+            {
+                return filter == null ? context.Blogs.Include(b => b.Author).Include(b => b.Category).SingleOrDefault() : context.Blogs.Include(b => b.Author).Include(b => b.Category).Where(filter).SingleOrDefault();
+            }
+        }
+
         public IEnumerable<Blog> GetBlogsWithAuthorAndCategory(Expression<Func<Blog, bool>> filter = null)
         {
             using (var context = new Context()) {

@@ -22,25 +22,23 @@
 					<div class="row">
 						@foreach(var blog in Model){
 							<div class="col-lg-4 card my-lg-4 my-md-1 my-0">
-								<a href="/Blog/BlogDetails/@blog.BlogId">
+								<a href="/Blog/BlogDetails/@blog.BlogId" style="display: flex;justify-content: center;">
 									<img src="@blog.BlogImagePath" class="card-img-top img-fluid" style="height:190px;width:330px;" alt="">
 							</a>
 							<div class="card-body">
-								<ul class="blog-icons my-4">
-									<li>
-										<a >
-												<i class="far fa-calendar-alt"></i> @(((DateTime)blog.BlogCreateDate).ToString("MMM dd, yyyy"))</a>
-									</li>
-									<li>
-										<a >
-											<i class="far fa-comment"></i> 21</a>
-									</li>
-									<li>
-										
-                                            <span class="badge" style="border-radius: 0px; background-color: @blog.Category.CategoryColorHex; color:white; font-weight:500; "> @blog.Category.CategoryName</span>
-									</li>
+                                <ul class="blog-icons my-4">
+                                    <li>
+                                        <a>
+                                            <i class="far fa-calendar-alt"></i> @(((DateTime)blog.BlogCreateDate).ToString("MMM dd, yyyy"))
+                                        </a>
+                                    </li>
+                                    @await Component.InvokeAsync("BlogCommentStats", new { id = @blog.BlogId, display=2 })
+                                    <li>
 
-								</ul>
+                                        <span class="badge" style="border-radius: 0px; background-color: @blog.Category.CategoryColorHex; color:white; font-weight:500; "> @blog.Category.CategoryName</span>
+                                    </li>
+
+                                </ul>
 								<h5 class="card-title">
 										<a href="/Blog/BlogDetails/@blog.BlogId">@blog.BlogTitle</a>
 								</h5>

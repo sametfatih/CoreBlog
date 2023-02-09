@@ -47,7 +47,7 @@
                     </div>
                 </div>
                 <div class="col" style="margin-top: auto; margin-bottom: auto;">
-                    <span id="upload-message"></span>
+                    <span class="small" id="upload-message"></span>
                 </div>
             </div>
 
@@ -60,157 +60,20 @@
                     <button type="submit" class="btn btn-gradient-primary mr-2">Oluştur</button>
                     <button type="button" class="btn btn-light" onclick="history.back()">Vazgeç</button>
                 </div>
-                <button type="button" id="previewButton" class="btn btn-gradient-primary">Önizleme</button>
+                <div class="group">
+                    <span class="small mr-3" id="preview-message"></span>
+                    <button type="button" id="previewButton" class="btn btn-gradient-primary">Önizleme</button>
+                </div>
             </div>
-
-
         </form>
     </div>
 </div>
 
 <!-- File upload -->
 <script src="~/writer/assets/js/file-upload.js"></script>
-
-<script>
-
-    $('#summernote').summernote({
-        height: 500,
-        minHeight: 300,
-        maxHeight: null,
-        callbacks: {
-            onImageUpload: function (files) {
-                for (let i = 0; i < files.length; i++) {
-                    UploadImage(files[i]);
-                }
-            },
-            onPaste: function (e) {
-                var bufferText = ((e.originalEvent || e).clipboardData || window.clipboardData).getData('Text');
-                e.preventDefault();
-                document.execCommand('insertText', false, bufferText);
-            }
-        },
-        toolbar: [
-            ['style', ['style']],
-            ['font', ['bold', 'underline' ]],
-            ['color', ['color']],
-            ['para', ['ul', 'ol', 'paragraph']],
-            ['insert', ['link', 'picture']],
-            ['view', ['fullscreen'/*, 'codeview'*/]],
-        ],
-        styleTags: ['p', 'h4'],
-        fontNames: ['Poppins'],
-        fontNamesIgnoreCheck: ['Poppins'],
-        addDefaultFonts: false,
-
-    });
-    $('#summernote').summernote('Poppins', 'sans-serif')
-
-
-    function UploadImage(file) {
-
-                    var url = '@Url.Action("UploadBlogImage", "Image")';
-
-                    formData = new FormData();
-                    formData.append("uploadedFile", file);
-                    $.ajax({
-                        type: 'POST',
-                        url: url,
-                        data: formData,
-                        cache: false,
-                        contentType: false,
-                        processData: false,
-                        success: function (FileUrl) {
-                           // alert(FileUrl);
-                            var imgNode = document.createElement('img');
-                            imgNode.src = FileUrl;
-                            $('#summernote').summernote('insertNode', imgNode);
-                        },
-                        error: function (data) {
-                            alert(data.responseText);
-                        }
-                    });
-    }
-
-</script>
-<script>
-
-    $('#upload-file').on("change", function () {
-
-        console.log($('#upload-file').prop('files'));
-        var files = $('#upload-file').prop('files');
-        for (let i = 0; i < files.length; i++) {
-            UploadImage2(files[i]);
-        }
-
-    });
-
-    function UploadImage2(file) {
-
-                    var url = '@Url.Action("UploadBlogImage", "Image")';
-
-                    formData = new FormData();
-                    formData.append("uploadedFile", file);
-                    $.ajax({
-                        type: 'POST',
-                        url: url,
-                        data: formData,
-                        cache: false,
-                        contentType: false,
-                        processData: false,
-                        success: function (FileUrl) {
-                           // alert(FileUrl);
-
-                            $('#blog-image').val(FileUrl);
-
-                            $('#upload-message').css('color', '#1bcfb4')
-                            $('#upload-message').text('*Resim yüklendi.');
-                            $('#upload-message').fadeIn();
-
-                        },
-                        error: function (data) {
-
-                            $('#upload-message').val("Resim yüklenemedi lütfen tekrar deneyin");
-                            $('#upload-message').css('color', '#fe7c96')
-                            $('#upload-message').text('*Resim yüklenemedi lütfen tekrar deneyin.');
-                            $('#upload-message').fadeIn();
-
-                            setTimeout(function () {
-                                $('#upload-message').text('');
-
-                            }, 5000);
-                        }
-                    });
-    }
-
-</script>
-<script>
-
-    $('#previewButton').on("click", function () {
-
-        $('#blogAddForm').attr('action', "/Blog/BlogPreview");
-        $('#blogAddForm').attr('target', "_blank").submit();
-
-        //window.open("/Blog/BlogPreview", '_blank');
-
-                //var valdata = $("#blogAddForm").serialize();
-
-       
-               
-                //$.ajax({
-
-                //    url: "/Blog/BlogPreview2",
-                //    type: "POST",
-                //    dataType: 'json',
-                //    contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
-                //    data: valdata,
-                //    success: function (data) {
-                //        window.open(data.openUrl, "_blank")
-                //    },
-                //    error: function (e) {
-                //        console.log('Error');
-                //        console.log(e)
-                //    }
-                //});
-    });
-
-</script>
+<!-- Summernote -->
+<script src="~/js/blog-summernote.js"></script>
+<!-- Blog image upload -->
+<script src="~/js/blog-upload-image.js"></script>
+<!-- Blog preview -->
+<script src="~/js/blog-preview.js"></script>

@@ -2,37 +2,50 @@
 @model IEnumerable<Comment>
 
 <div class="comment-top">
-	<h4>Yorumlar (@Model.Count())</h4>
-		
-	@if (Model.Count() < 1)
-	{
-		<p>Bu blog yazısına henüz yorum yapılmadı.
-			İlk yorumu siz yapın!
-		</p>
-	}
-	else
-	{
-		@foreach (var comment in Model)
-		{
-					<div class="media">
-						<img src="~/images/blogs/t1.jpg" alt="" class="img-fluid" />
-						<div class="media-body">
-							<h5 class="mt-0">@comment.CommentUserName</h5>
-							<p>@comment.CommentContent</p>
+    <h4>Yorumlar (@Model.Count())</h4>
 
-							<div class="media mt-3">
-								<a class="d-flex pr-3">
-									<img src="~/images/blogs/t1.jpg" alt="" class="img-fluid" />
-								</a>
-								<div class="media-body">
-									<h5 class="mt-0">Richard Spark</h5>
-									<p>Lorem Ipsum convallis diam consequat magna vulputate malesuada. id dignissim sapien velit id felis ac cursus eros.
-										Cras a ornare elit.</p>
-								</div>
-							</div>
-						</div>
-					</div>
-		}
-	}
-	
+    @if (Model.Count() < 1)
+    {
+        <p>
+            Bu blog yazısına henüz yorum yapılmadı.
+            İlk yorumu siz yapın!
+        </p>
+    }
+    else
+    {
+        @foreach (var comment in Model)
+        {
+            <div class="media">
+                <img src="~/images/utils/person.jpg" alt="" class="img-fluid" />
+                <div class="media-body">
+                    <h5 class="mt-0">
+                        @comment.CommentUserName
+
+                        @if (comment.CommentRate == 1)
+                        {
+                            <i class="fa fa-thumbs-up text-success btn-sm ml-1"></i>
+                        }
+                        else
+                        {
+                            <i class="fa fa-thumbs-down text-danger btn-sm ml-1"></i>
+                        }
+
+                    </h5>
+                    <p>@comment.CommentContent</p>
+
+                    @*<div class="media mt-3">
+                            <a class="d-flex pr-3">
+                                <img src="~/images/blogs/t1.jpg" alt="" class="img-fluid" />
+                            </a>
+                            <div class="media-body">
+                                <h5 class="mt-0">Richard Spark</h5>
+                                <p>Lorem Ipsum convallis diam consequat magna vulputate malesuada. id dignissim sapien velit id felis ac cursus eros.
+                                    Cras a ornare elit.</p>
+                            </div>
+                        </div>*@
+                </div>
+            </div>
+        }
+    }
+
 </div>

@@ -2,16 +2,33 @@
 <div class="comment-top">
 	<h4>Bir Yorum Yapın</h4>
 	<div class="comment-bottom">
-		<form id="commentForm" method="post">
-			<input class="form-control" type="text" id="commentName" name="CommentUserName" placeholder="Ad Soyad" required="">
-			<input class="form-control" type="email" id="commentEmail" name="CommentUserMail" placeholder="Email" required="">
-			<input class="form-control" type="hidden" name="BlogId" value="@ViewBag.blogId" required="">
-			<input class="form-control" type="hidden" name="CommentDate" value="@DateTime.Now.ToShortDateString()" required="">
-			<textarea class="form-control" id="commentText" name="CommentContent" placeholder="Mesaj..." required=""></textarea>
-			<button type="button" id="submitComment" class="btn btn-primary submit">Yorum Yap</button>
-			<span class="result small ml-3" id="result_comment" style="display:inline-block;"></span>
+        <form id="commentForm" method="post">
 
-		</form>
+            <div class="form-group">
+                <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                    <div>
+                        <p>Bu yazıyı beğendiniz mi?</p>
+                    </div>
+                    <div class="btn btn-outline-success btn-sm mr-2 ml-2">
+                        <input type="radio" name="CommentRate" id="option1" value="1"> 
+                        <i class="fa fa-thumbs-up"></i>
+                    </div>
+                    <div class="btn btn-outline-danger btn-sm">
+                        <input type="radio" name="CommentRate" id="option2" value="0">
+                        <i class="fa fa-thumbs-down"></i>
+                    </div>
+                </div>
+            </div>
+
+            <input class="form-control" type="text" id="commentName" name="CommentUserName" placeholder="Ad Soyad" required="">
+            <input class="form-control" type="email" id="commentEmail" name="CommentUserMail" placeholder="Email" required="">
+            <input class="form-control" type="hidden" name="BlogId" value="@ViewBag.blogId" required="">
+            <input class="form-control" type="hidden" name="CommentDate" value="@DateTime.Now.ToShortDateString()" required="">
+            <textarea class="form-control" id="commentText" name="CommentContent" placeholder="Mesaj" rows="5" required=""></textarea>
+            <button type="button" id="submitComment" class="btn btn-primary submit">Yorum Yap</button>
+            <span class="result small ml-3" id="result_comment" style="display:inline-block;"></span>
+
+        </form>
 	</div>
 </div>
 
@@ -33,7 +50,8 @@
 			if(
 				$('#commentEmail').val()!="" &&
 				$('#commentText').val()!="" &&
-				$('#commentName').val()!=""
+				$('#commentName').val() != "" &&
+				$("input[name=CommentRate]:checked").val() != undefined
 			){
 				if(IsEmail(commentEmail)==false){
 					 $('#result_comment').css('color','red');

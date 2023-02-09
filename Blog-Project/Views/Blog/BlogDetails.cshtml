@@ -6,79 +6,96 @@
     Layout = "~/Views/Shared/UserLayout.cshtml";
 }
 
-	<div class="banner-inner">
-	</div>
-	<ol class="breadcrumb">
-		<li class="breadcrumb-item">
-			<a href="/Blog">Anasayfa</a>
-		</li>
-		<li class="breadcrumb-item active">@Model.BlogTitle</li>
-	</ol>
+<div class="banner-inner">
+</div>
+<ol class="breadcrumb">
+    <li class="breadcrumb-item">
+        <a href="/Blog">Anasayfa</a>
+    </li>
+    <li class="breadcrumb-item active">@Model.BlogTitle</li>
+</ol>
 
-	<!--//banner-->
-	<section class="banner-bottom">
-		<!--/blog-->
-		<div class="container">
-			<div class="row">
-				<!--left-->
-				<div class="col-lg-8 left-blog-info-w3layouts-agileits text-left">
-					<div class="blog-grid-top">
-						<div class="b-grid-top">
-							<div class="blog_info_left_grid">
-								<a href="#">
-									<img src="@Model.BlogImagePath" class="img-fluid" alt="">
-								</a>
-							</div>
-							<div class="blog-info-middle">
-								<ul>
-									<li>
-										<a href="#">
-											<i class="far fa-calendar-alt"></i> @(((DateTime)Model.BlogCreateDate).ToString("MMM dd, yyyy")) </a>
-									</li>
-									<li class="mx-2">
-										<a href="#">
-											<i class="far fa-thumbs-up"></i> 201 Likes</a>
-									</li>
-									<li>
-										<a href="#">
-											<i class="far fa-comment"></i> 15 Comments</a>
-									</li>
+<!--//banner-->
+<section class="banner-bottom">
+    <!--/blog-->
+    <div class="container">
 
-								</ul>
-							</div>
-						</div>
+        <div class="row">
+            <!--left-->
+            <div class="col-lg-8 left-blog-info-w3layouts-agileits text-left">
+                <div class="blog-grid-top">
+                    <div class="b-grid-top">
+                        <div class="blog_info_left_grid">
+                            <a href="#">
+                                <img src="@Model.BlogImagePath" class="img-fluid" alt="">
+                            </a>
+                        </div>
+                        <div class="blog-info-middle">
+                            <ul>
+                                <li>
+                                    <a href="#">
+                                        <i class="far fa-calendar-alt"></i> @(((DateTime)Model.BlogCreateDate).ToString("MMM dd, yyyy"))
+                                    </a>
+                                </li>
 
-						<h3>
-							<a style="color:#555555;" >@Model.BlogTitle</a>
-						</h3>
-						<div class="blog-detail" >@Html.Raw(Model.BlogContent)</div>
-					
-					</div>
+                                @await Component.InvokeAsync("BlogCommentStats", new { id = @Model.BlogId, display = 1 })
 
-					@await Component.InvokeAsync("BlogComments",new{id=ViewBag.urlId})
+                            </ul>
+                        </div>
+                    </div>
 
-					@await Component.InvokeAsync("LeaveAComment",new{id=ViewBag.urlId})
+                    <h3>
+                        <a style="color:#555555;">@Model.BlogTitle</a>
+                    </h3>
+                    <div class="blog-detail">@Html.Raw(Model.BlogContent)</div>
 
-				</div>
+                    <div class="blog-author-about">
 
-				<!--//left-->
-				<!--right-->
-				<aside class="col-lg-4 agileits-w3ls-right-blog-con text-right">
-					<div class="right-blog-info text-left">
-						
-						@await Html.PartialAsync("~/Views/Subscriber/SubscribeMail.cshtml")
+                        <div class="row">
+                            <div class="col-auto">
+                                <img src="https://images.ctfassets.net/i3tkg7dt3kro/75v28jlYgzXscdxZY1ysY5/64311491329576f2f500034bff8e0dd7/shutterstock_1444581284-scaled.jpg" />
+                            </div>
+                            <div class="col-10">
+                                <h6>@Model.Author.AuthorName</h6>
+                                <p class="author-about"> @Model.Author.AuthorAbout </p>
+                                <div class="author-contact">
+                                    <div class="row d-flex justify-content-around">
+                                        <a href="mailto:@Model.Author.AuthorMail"><i class="fa fa-envelope"></i> @Model.Author.AuthorMail</a>
+                                        <a href="https://www.instagram.com"><i class="fab fa-instagram"></i> samet_fatih_</a>
+                                        <a href="https://www.twitter.com"><i class="fab fa-twitter"></i> samet_fatih_</a>
+                                    </div>
+                                </div>
+                                </div>
 
-						@await Component.InvokeAsync("Categories")
-						@await Component.InvokeAsync("AuthorBlogs",new{id=@Model.AuthorId})
-						@await Component.InvokeAsync("NewBlogs")
+                        </div>
 
-						
-					</div>
+                    </div>
 
-				</aside>
-				<!--//right-->
-			</div>
-		</div>
-	</section>
-	<!--//main-->
+                </div>
 
+                @await Component.InvokeAsync("BlogComments", new { id = ViewBag.urlId })
+
+                @await Component.InvokeAsync("LeaveAComment", new { id = ViewBag.urlId })
+
+            </div>
+
+            <!--//left-->
+            <!--right-->
+            <aside class="col-lg-4 agileits-w3ls-right-blog-con text-right">
+                <div class="right-blog-info text-left">
+
+                    @await Html.PartialAsync("~/Views/Subscriber/SubscribeMail.cshtml")
+
+                    @await Component.InvokeAsync("Categories")
+                    @await Component.InvokeAsync("AuthorBlogs", new { id = @Model.AuthorId })
+                    @await Component.InvokeAsync("NewBlogs")
+
+
+                </div>
+
+            </aside>
+            <!--//right-->
+        </div>
+    </div>
+</section>
+<!--//main-->

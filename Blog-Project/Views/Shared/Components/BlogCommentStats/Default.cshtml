@@ -1,0 +1,28 @@
+﻿
+@if (ViewBag.display == 1)
+{
+    <li class="mx-2">
+        <a href="#">
+            <i class="far fa-thumbs-up"></i> @ViewBag.like Beğenme
+        </a>
+    </li>
+    <li>
+        <a href="#">
+            <i class="far fa-comment"></i> @ViewBag.comment Yorum
+        </a>
+    </li>
+}
+else if (ViewBag.display == 2)
+{
+    <li>
+        <a>
+            <i class="far fa-thumbs-up"></i> @ViewBag.like
+        </a>
+    </li>
+    <li>
+        <a>
+            <i class="far fa-comment"></i> @ViewBag.comment
+        </a>
+    </li>
+}
+

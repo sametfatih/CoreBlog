@@ -31,7 +31,7 @@
                 <tbody>
                     @foreach (var blog in Model)
                     {
-                        <tr>
+                        <tr class="clickable-row" data-href="/Blog/BlogDetails/@blog.BlogId" data-target="_blank">
 
                             <td class="overflow-text" data-label="Başlık">@blog.BlogTitle </td>
                             <td data-label="Kategori"><label class="badge badge-gradient-info small" @*style="background-color:@blog.Category.CategoryColorHex;color:white;"*@>@blog.Category.CategoryName</label></td>
@@ -74,12 +74,6 @@
                                                 </a>
                                             </a>
                                         }
-                                        <a class="dropdown-item">
-                                            <a type="button" href="/Blog/BlogDetails/@blog.BlogId" target="_blank" class="btn btn-gradient-secondary btn-block">
-                                                <i class="mdi mdi-file-check btn-icon-prepend"></i>
-                                                Görüntüle
-                                            </a>
-                                        </a>
                                     </div>
                                 </div>
                             </td>

@@ -11,5 +11,8 @@ namespace BusinessLayer.Abstract
     public interface ICommentService:IService<Comment>
     {
         List<Comment> GetAllByBlogId(int id);
+        int GetCommentCountByBlogId(int id);
+        int GetLikeCountByBlogId(int id);
+       
     }
 }

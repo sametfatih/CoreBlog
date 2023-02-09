@@ -14,5 +14,6 @@ namespace DataAccessLayer.Abstract
     {
         List<Blog> GetAllWithCategory(Expression<Func<Blog, bool>> filter = null);
         IEnumerable<Blog> GetBlogsWithAuthorAndCategory(Expression<Func<Blog, bool>> filter = null);
+        Blog GetBlogByIdWithAuthorAndCategory(Expression<Func<Blog, bool>> filter = null);
     }
 }

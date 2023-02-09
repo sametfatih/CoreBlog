@@ -18,6 +18,7 @@ namespace EntityLayer.Concrete
         public DateTime BlogCreateDate { get; set; }
         public string BlogImagePath { get; set; }
         public string BlogThumbnailImagePath { get; set; }
+        public int BlogRating { get; set; }
         public bool BlogStatus { get; set; }
         public int CategoryId { get; set; }
         public Category Category { get; set; }

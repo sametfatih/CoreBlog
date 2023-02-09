@@ -67,5 +67,10 @@ namespace BusinessLayer.Concrete
         {
 			return _blogDal.GetBlogsWithAuthorAndCategory(b => b.BlogStatus == true).OrderByDescending(b => b.BlogCreateDate).Take(5);
         }
+
+        public Blog GetBlogByIdWithAuthorAndCategory(int id)
+        {
+            return _blogDal.GetBlogByIdWithAuthorAndCategory(b=>b.BlogId==id);
+        }
     }
 }

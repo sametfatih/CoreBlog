@@ -191,3 +191,4 @@ D:\c#\Blog-Project\Blog-Project\obj\Debug\net5.0\Razor\Views\Blog\AuthorBlogUpda
 D:\c#\Blog-Project\Blog-Project\obj\Debug\net5.0\Razor\Views\Dashboard\Index.cshtml.g.cs
 D:\c#\Blog-Project\Blog-Project\obj\Debug\net5.0\Razor\Views\Shared\Components\AuthorNewBlogs\Default.cshtml.g.cs
 D:\c#\Blog-Project\Blog-Project\obj\Debug\net5.0\Razor\Views\Blog\BlogPreview.cshtml.g.cs
+D:\c#\Blog-Project\Blog-Project\obj\Debug\net5.0\Razor\Views\Shared\Components\BlogCommentStats\Default.cshtml.g.cs

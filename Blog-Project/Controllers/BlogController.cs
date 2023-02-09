@@ -28,7 +28,7 @@ namespace Blog_Project.Controllers
         public IActionResult BlogDetails(int id)
         {
             ViewBag.urlId = id;
-            var blog = _blogManager.GetByID(id);
+            var blog = _blogManager.GetBlogByIdWithAuthorAndCategory(id);
             return View(blog);
         }
         public IActionResult AuthorBlogList()
@@ -55,7 +55,7 @@ namespace Blog_Project.Controllers
         public IActionResult AuthorBlogAdd(Blog blog)
         {
             blog.BlogContentText = HtmlUtilities.ConvertToPlainText(blog.BlogContent);
-            //_blogManager.Add(blog);
+            _blogManager.Add(blog);
             return RedirectToAction("AuthorBlogList");
         }
         [HttpGet]

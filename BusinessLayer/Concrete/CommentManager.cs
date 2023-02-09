@@ -21,7 +21,7 @@ namespace BusinessLayer.Concrete
 
         public void Add(Comment entity)
         {
-             _commentDal.Add(entity);
+            _commentDal.Add(entity);
         }
 
         public void Delete(int id)
@@ -34,14 +34,24 @@ namespace BusinessLayer.Concrete
             return _commentDal.GetAll();
         }
 
-		public List<Comment> GetAllByBlogId(int id)
-		{
-			return _commentDal.GetAll(c=>c.BlogId==id);
-		}
+        public List<Comment> GetAllByBlogId(int id)
+        {
+            return _commentDal.GetAll(c => c.BlogId == id && c.CommentStatus == true);
+        }
 
-		public Comment GetByID(int id)
+        public Comment GetByID(int id)
         {
             throw new NotImplementedException();
+        }
+
+        public int GetCommentCountByBlogId(int id)
+        {
+            return _commentDal.GetAll(c => c.BlogId == id && c.CommentStatus == true).Count();
+        }
+
+        public int GetLikeCountByBlogId(int id)
+        {
+            return _commentDal.GetAll(c => c.BlogId == id && c.CommentRate == 1 && c.CommentStatus == true).Count();
         }
 
         public void Update(Comment entity)

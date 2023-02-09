@@ -255,6 +255,11 @@ h5.mt-0 {
 
 .media img {
     margin-right: 15px;
+
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    border: 2px solid #ebecec;
 }
 
 .comment-top {

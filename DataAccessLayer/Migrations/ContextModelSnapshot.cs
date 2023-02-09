@@ -71,6 +71,9 @@ namespace DataAccessLayer.Migrations
                     b.Property<string>("AuthorPassword")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int>("AuthorRating")
+                        .HasColumnType("int");
+
                     b.Property<bool>("AuthorStatus")
                         .HasColumnType("bit");
 
@@ -100,6 +103,9 @@ namespace DataAccessLayer.Migrations
 
                     b.Property<string>("BlogImagePath")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("BlogRating")
+                        .HasColumnType("int");
 
                     b.Property<bool>("BlogStatus")
                         .HasColumnType("bit");
@@ -161,6 +167,9 @@ namespace DataAccessLayer.Migrations
 
                     b.Property<DateTime>("CommentDate")
                         .HasColumnType("datetime2");
+
+                    b.Property<int>("CommentRate")
+                        .HasColumnType("int");
 
                     b.Property<bool>("CommentStatus")
                         .HasColumnType("bit");

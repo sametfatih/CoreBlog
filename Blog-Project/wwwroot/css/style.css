@@ -653,6 +653,44 @@ button.btn.btn-primary.play{
 /*--//content --*/
 /*--/main-content-w3layouts-agileits --*/
 /*--/left--*/
+
+.blog-author-about {
+	border: 1px solid #ddd;
+	padding: 2em;
+	background-color: #f5f5f5;
+}
+.blog-author-about .col-auto {
+		display: flex;
+		align-items: start;
+}
+	.blog-author-about img {
+		width: 75px;
+		height: 75px;
+		border-radius: 50%;
+		border: 2px solid #ebecec;
+		object-fit: cover; /* Do not scale the image */
+		object-position: center; /* Center the image within the element */
+	}
+	.blog-author-about .author-about {
+		margin-bottom: 0;
+		margin-top:1em;
+		font-size: 0.8em;
+	}
+	.blog-author-about .author-contact {
+		border-top: 1px solid #ddd;
+		margin-top: 1em;
+	}
+		.blog-author-about .author-contact a {
+			padding-top: 1em;
+			margin-bottom: 0;
+			font-size: 0.8em;
+			color: #555555;
+			line-height: 2em;
+			letter-spacing: 1px;
+			font-weight: 300;
+		}
+
+
 .b-grid-top {
     position: relative;
 }
@@ -722,10 +760,13 @@ button.btn.btn-primary.play.sec{
 	width:40px;
 	height:40px;
 }
+ul.blog-icons{
+	display: flex;
+	justify-content:space-between;
+}
 ul.blog-icons li {
-    display: inline-block;
-	margin-right: 20px;
-	list-style:none;
+	display: inline-block;
+	list-style: none;
 }
 ul.blog-icons a {
     font-size: 0.9em;
